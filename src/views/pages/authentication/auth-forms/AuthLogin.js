@@ -35,6 +35,9 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import Google from 'assets/images/icons/social-google.svg';
 
+// login service
+import Auth from '../../../../services/Auth';
+
 // ============================|| FIREBASE - LOGIN ||============================ //
 
 const FirebaseLogin = ({ ...others }) => {
@@ -121,12 +124,12 @@ const FirebaseLogin = ({ ...others }) => {
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
-                    email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                    password: Yup.string().max(255).required('Password is required')
+                    email: Yup.string().email('Debes ingresar un email').max(255).required('Debes ingresar un email'),
+                    password: Yup.string().max(255).required('Debes ingresar un password')
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
-                        console.log('this is my fucking values', values);
+                        Auth.loginWithEmailAndPassword(values);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
