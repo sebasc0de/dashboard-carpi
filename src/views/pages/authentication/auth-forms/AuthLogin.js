@@ -219,11 +219,6 @@ const FirebaseLogin = ({ ...others }) => {
                                 Forgot Password?
                             </Typography>
                         </Stack>
-                        {errors.submit && (
-                            <Box sx={{ mt: 3 }}>
-                                <FormHelperText error>{errors.submit}</FormHelperText>
-                            </Box>
-                        )}
 
                         <Box sx={{ mt: 2 }}>
                             <AnimateButton>
