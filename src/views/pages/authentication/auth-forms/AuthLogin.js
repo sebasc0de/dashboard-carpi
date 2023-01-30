@@ -37,6 +37,8 @@ import Google from 'assets/images/icons/social-google.svg';
 
 // login service
 import Auth from '../../../../services/Auth';
+import { toast } from 'react-toastify';
+import { ERROR_CONFIG } from 'config/Notifications';
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
@@ -129,13 +131,14 @@ const FirebaseLogin = ({ ...others }) => {
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
-                        Auth.loginWithEmailAndPassword(values);
+                        const login = await Auth.loginWithEmailAndPassword(values);
+                        console.log(login);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
                         }
                     } catch (err) {
-                        console.error(err);
+                        toast('algo anda mal', ERROR_CONFIG);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
                             setErrors({ submit: err.message });
@@ -233,7 +236,7 @@ const FirebaseLogin = ({ ...others }) => {
                                     variant="contained"
                                     color="secondary"
                                 >
-                                    Sign in
+                                    Iniciar sesion
                                 </Button>
                             </AnimateButton>
                         </Box>
