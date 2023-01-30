@@ -49,13 +49,9 @@ const FirebaseLogin = ({ ...others }) => {
     };
 
     const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
 
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+    const handleMouseDownPassword = (event) => event.preventDefault();
 
     return (
         <>
@@ -130,6 +126,7 @@ const FirebaseLogin = ({ ...others }) => {
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
+                        console.log('this is my fucking values', values);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);

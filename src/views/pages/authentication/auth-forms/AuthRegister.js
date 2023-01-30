@@ -35,6 +35,7 @@ import { strengthColor, strengthIndicator } from 'utils/password-strength';
 // assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Auth from 'services/Auth';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
@@ -136,6 +137,8 @@ const FirebaseRegister = ({ ...others }) => {
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
+                        const register = await Auth.registerWithEmailAndPassword(values);
+                        console.log(register);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
