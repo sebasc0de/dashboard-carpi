@@ -10,8 +10,8 @@ const icons = {
 
 const pages = {
     id: 'pages',
-    title: 'Pages',
-    caption: 'Pages Caption',
+    title: 'Roles y permisos',
+    caption: '',
     type: 'group',
     children: [
         {

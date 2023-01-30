@@ -13,12 +13,12 @@ const icons = {
 
 const utilities = {
     id: 'utilities',
-    title: 'Utilities',
+    title: 'Empresa',
     type: 'group',
     children: [
         {
             id: 'util-typography',
-            title: 'Typography',
+            title: 'Productos',
             type: 'item',
             url: '/utils/util-typography',
             icon: icons.IconTypography,
@@ -26,7 +26,7 @@ const utilities = {
         },
         {
             id: 'util-color',
-            title: 'Color',
+            title: 'Pedidos',
             type: 'item',
             url: '/utils/util-color',
             icon: icons.IconPalette,
@@ -34,7 +34,7 @@ const utilities = {
         },
         {
             id: 'util-shadow',
-            title: 'Shadow',
+            title: 'Companias',
             type: 'item',
             url: '/utils/util-shadow',
             icon: icons.IconShadow,
@@ -42,7 +42,7 @@ const utilities = {
         },
         {
             id: 'icons',
-            title: 'Icons',
+            title: 'Lista de precios',
             type: 'collapse',
             icon: icons.IconWindmill,
             children: [
