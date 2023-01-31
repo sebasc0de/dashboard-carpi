@@ -9,7 +9,7 @@ export const Private = ({ children }) => {
     console.log(user);
 
     useEffect(() => {
-        !user ? navigate('pages/login/login3') : navigate('/');
+        !user ? navigate('iniciar-sesion') : navigate('/');
     }, [user]);
 
     return <main>{children}</main>;
