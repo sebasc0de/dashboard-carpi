@@ -37,38 +37,38 @@ const MainRoutes = {
             ]
         },
         {
-            path: 'utils',
+            path: 'business',
             children: [
                 {
-                    path: 'util-typography',
+                    path: 'products',
                     element: <UtilsTypography />
                 }
             ]
         },
 
         {
-            path: 'utils',
+            path: 'business',
             children: [
                 {
-                    path: 'util-color',
+                    path: 'orders',
                     element: <UtilsColor />
                 }
             ]
         },
         {
-            path: 'utils',
+            path: 'business',
             children: [
                 {
-                    path: 'util-user',
+                    path: 'users',
                     element: <UtilsTypography />
                 }
             ]
         },
         {
-            path: 'utils',
+            path: 'business',
             children: [
                 {
-                    path: 'util-shadow',
+                    path: 'companies',
                     element: <UtilsShadow />
                 }
             ]

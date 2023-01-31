@@ -12,40 +12,40 @@ const icons = {
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
 
-const utilities = {
-    id: 'utilities',
+const business = {
+    id: 'business',
     title: 'Empresa',
     type: 'group',
     children: [
         {
-            id: 'util-typography',
+            id: 'products',
             title: 'Productos',
             type: 'item',
-            url: '/utils/util-typography',
+            url: '/business/products',
             icon: icons.IconBox,
             breadcrumbs: false
         },
         {
-            id: 'util-color',
+            id: 'orders',
             title: 'Pedidos',
             type: 'item',
-            url: '/utils/util-color',
+            url: '/business/orders',
             icon: icons.IconFileText,
             breadcrumbs: false
         },
         {
-            id: 'util-user',
+            id: 'users',
             title: 'Usuarios',
             type: 'item',
-            url: '/utils/util-user',
+            url: '/business/users',
             icon: icons.IconUser,
             breadcrumbs: false
         },
         {
-            id: 'util-shadow',
+            id: 'companies',
             title: 'Companias',
             type: 'item',
-            url: '/utils/util-shadow',
+            url: '/business/companies',
             icon: icons.IconBuildingStore,
             breadcrumbs: false
         },
@@ -74,4 +74,4 @@ const utilities = {
     ]
 };
 
-export default utilities;
+export default business;
