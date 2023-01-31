@@ -1,12 +1,12 @@
 // assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill, IconBuildingStore, IconFileText } from '@tabler/icons';
+import { IconBox, IconCurrencyDollar, IconBuildingStore, IconFileText } from '@tabler/icons';
 
 // constant
 const icons = {
-    IconShadow,
-    IconWindmill,
     IconBuildingStore,
-    IconFileText
+    IconFileText,
+    IconBox,
+    IconCurrencyDollar
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
@@ -21,7 +21,7 @@ const utilities = {
             title: 'Productos',
             type: 'item',
             url: '/utils/util-typography',
-            icon: icons.IconBuildingStore,
+            icon: icons.IconBox,
             breadcrumbs: false
         },
         {
@@ -37,14 +37,14 @@ const utilities = {
             title: 'Companias',
             type: 'item',
             url: '/utils/util-shadow',
-            icon: icons.IconShadow,
+            icon: icons.IconBuildingStore,
             breadcrumbs: false
         },
         {
             id: 'icons',
             title: 'Lista de precios',
             type: 'collapse',
-            icon: icons.IconWindmill,
+            icon: icons.IconCurrencyDollar,
             children: [
                 {
                     id: 'tabler-icons',
