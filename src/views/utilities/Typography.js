@@ -17,13 +17,11 @@ const Typography = () => {
         repository.getAll().then(setProducts);
     }, []);
 
-    console.log(products);
-
     return (
         <MainCard title="Productos" secondary={<Button text="Hello world" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
-                    <Table />
+                    <Table data={products} />
                 </Grid>
             </Grid>
         </MainCard>

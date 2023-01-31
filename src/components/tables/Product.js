@@ -1,6 +1,7 @@
 import styles from '../../styles/table.module.css';
 
 export const Product = ({ data }) => {
+    if (!data) return <p>Loading</p>;
     return (
         <div className={styles.container}>
             <table>
@@ -17,16 +18,17 @@ export const Product = ({ data }) => {
                     <th>En promocion</th>
                     <th>Publicado</th>
                 </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
-                </tr>
-                <tr>
-                    <td>Centro comercial Moctezuma</td>
-                    <td>Francisco Chang</td>
-                    <td>Mexico</td>
-                </tr>
+                {data.map((item) => (
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>{item.carpiId}</td>
+                        <td>{item.name}</td>
+                        <td>{item.price}</td>
+                        <td>{item.price}</td>
+                        <td>{item.price}</td>
+                        <td>{item.price}</td>
+                    </tr>
+                ))}
             </table>
         </div>
     );
