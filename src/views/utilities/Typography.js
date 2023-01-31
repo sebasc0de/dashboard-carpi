@@ -6,6 +6,7 @@ import { gridSpacing } from 'store/constant';
 import { Product as Table } from 'components/tables/Product';
 import { useEffect, useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
+import { ProductLabels } from '../../data/tables';
 import repository from '../../repositories/product';
 
 // ==============================|| TYPOGRAPHY ||============================== //
@@ -17,13 +18,11 @@ const Typography = () => {
         repository.getAll().then(setProducts);
     }, []);
 
-    console.log(products);
-
     return (
         <MainCard title="Productos" secondary={<Button text="Hello world" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
-                    <Table />
+                    <Table data={products} labels={ProductLabels} />
                 </Grid>
             </Grid>
         </MainCard>

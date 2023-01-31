@@ -10,12 +10,22 @@
 
 .container table th {
     text-align: left;
-    min-width: 250px;
     padding: 1rem;
+    text-transform: capitalize;
 }
 
 .container table td {
     font-size: 0.8rem;
-    min-width: 250px;
+    min-width: 150px;
     padding: 1rem;
+}
+
+.published {
+    background: #198754;
+    padding: 0.225rem;
+    text-transform: capitalize;
+    display: block;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
 }
