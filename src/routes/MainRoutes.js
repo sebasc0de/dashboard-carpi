@@ -8,11 +8,11 @@ import Loadable from 'ui-component/Loadable';
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
 
 // utilities routing
-const UtilsTypography = Loadable(lazy(() => import('views/utilities/Typography')));
-const UtilsColor = Loadable(lazy(() => import('views/utilities/Color')));
-const UtilsShadow = Loadable(lazy(() => import('views/utilities/Shadow')));
-const UtilsMaterialIcons = Loadable(lazy(() => import('views/utilities/MaterialIcons')));
-const UtilsTablerIcons = Loadable(lazy(() => import('views/utilities/TablerIcons')));
+const Products = Loadable(lazy(() => import('views/business/Products')));
+const Orders = Loadable(lazy(() => import('views/business/Orders')));
+const Users = Loadable(lazy(() => import('views/business/Users')));
+const Companies = Loadable(lazy(() => import('views/business/Companies')));
+const UtilsTablerIcons = Loadable(lazy(() => import('views/business/TablerIcons')));
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
@@ -41,7 +41,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'products',
-                    element: <UtilsTypography />
+                    element: <Products />
                 }
             ]
         },
@@ -51,7 +51,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'orders',
-                    element: <UtilsColor />
+                    element: <Orders />
                 }
             ]
         },
@@ -60,7 +60,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'users',
-                    element: <UtilsTypography />
+                    element: <Users />
                 }
             ]
         },
@@ -69,7 +69,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'companies',
-                    element: <UtilsShadow />
+                    element: <Companies />
                 }
             ]
         },
