@@ -1,6 +1,6 @@
 import styles from '../../styles/table.module.css';
 
-export const Product = () => {
+export const Product = ({ data }) => {
     return (
         <div className={styles.container}>
             <table>

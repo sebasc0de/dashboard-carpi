@@ -1,22 +1,33 @@
-import { Grid, Link } from '@mui/material';
-import MuiTypography from '@mui/material/Typography';
+import { Grid } from '@mui/material';
 
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import { gridSpacing } from 'store/constant';
 import { Button } from 'components/Button';
+import { gridSpacing } from 'store/constant';
 import { Product as Table } from 'components/tables/Product';
+import { useEffect, useState } from 'react';
+import MainCard from 'ui-component/cards/MainCard';
+import repository from '../../repositories/product';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
-const Typography = () => (
-    <MainCard title="Productos" secondary={<Button text="Hello world" />}>
-        <Grid container spacing={gridSpacing}>
-            <Grid item xs={12} sm={12}>
-                <Table />
+const Typography = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        repository.getAll().then(setProducts);
+    }, []);
+
+    console.log(products);
+
+    return (
+        <MainCard title="Productos" secondary={<Button text="Hello world" />}>
+            <Grid container spacing={gridSpacing}>
+                <Grid item xs={12} sm={12}>
+                    <Table />
+                </Grid>
             </Grid>
-        </Grid>
-    </MainCard>
-);
+        </MainCard>
+    );
+};
 
 export default Typography;
