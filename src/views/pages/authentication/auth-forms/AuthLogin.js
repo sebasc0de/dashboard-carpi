@@ -131,14 +131,16 @@ const FirebaseLogin = ({ ...others }) => {
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
-                        const login = await Auth.loginWithEmailAndPassword(values);
+                        const { submit, ...data } = values;
+                        const login = await Auth.loginWithEmailAndPassword(data);
                         console.log(login);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
                         }
                     } catch (err) {
-                        toast('algo anda mal', ERROR_CONFIG);
+                        console.log(err);
+                        // toast('algo anda mal', ERROR_CONFIG);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
                             setErrors({ submit: err.message });

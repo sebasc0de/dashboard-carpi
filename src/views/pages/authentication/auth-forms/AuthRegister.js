@@ -51,7 +51,7 @@ const FirebaseRegister = ({ ...others }) => {
     const [level, setLevel] = useState();
 
     const googleHandler = async () => {
-        console.error('Register');
+        console.log('this is test');
     };
 
     const handleClickShowPassword = () => {
@@ -113,8 +113,8 @@ const FirebaseRegister = ({ ...others }) => {
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
-                        const register = await Auth.registerWithEmailAndPassword(values);
-                        console.log(register);
+                        const { submit, ...data } = values;
+                        const register = await Auth.registerWithEmailAndPassword(data);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
@@ -285,11 +285,6 @@ const FirebaseRegister = ({ ...others }) => {
                                 />
                             </Grid>
                         </Grid>
-                        {errors.submit && (
-                            <Box sx={{ mt: 3 }}>
-                                <FormHelperText error>{errors.submit}</FormHelperText>
-                            </Box>
-                        )}
 
                         <Box sx={{ mt: 2 }}>
                             <AnimateButton>
