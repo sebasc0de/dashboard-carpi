@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -32,8 +32,10 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 // assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
 import Google from 'assets/images/icons/social-google.svg';
+
+// action types
+import { SET_USER } from '../../../../store/auth/actions';
 
 // login service
 import Auth from '../../../../services/Auth';
@@ -46,7 +48,8 @@ const FirebaseLogin = ({ ...others }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    const customization = useSelector((state) => state.auth);
+    const customization = useSelector((state) => state.customization);
+    const dispatch = useDispatch();
     const [checked, setChecked] = useState(true);
 
     const googleHandler = async () => {
@@ -121,8 +124,8 @@ const FirebaseLogin = ({ ...others }) => {
 
             <Formik
                 initialValues={{
-                    email: 'info@codedthemes.com',
-                    password: '123456',
+                    email: '',
+                    password: '',
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
@@ -133,7 +136,7 @@ const FirebaseLogin = ({ ...others }) => {
                     try {
                         const { submit, ...data } = values;
                         const login = await Auth.loginWithEmailAndPassword(data);
-                        console.log(login);
+                        dispatch({ type: SET_USER, SET_USER: login.data });
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);

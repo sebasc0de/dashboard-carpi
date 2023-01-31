@@ -15,10 +15,7 @@ const authReducer = (state = initialState, action) => {
         case actionTypes.SET_USER:
             return {
                 ...state,
-                user: {
-                    name: 'prueba',
-                    desc: 'prueba de reducer'
-                }
+                user: action.SET_USER
             };
 
         default:
