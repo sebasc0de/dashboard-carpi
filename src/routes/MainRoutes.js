@@ -74,20 +74,20 @@ const MainRoutes = {
             ]
         },
         {
-            path: 'icons',
+            path: 'business',
             children: [
                 {
-                    path: 'tabler-icons',
+                    path: 'prices',
                     element: <UtilsTablerIcons />
                 }
             ]
         },
         {
-            path: 'icons',
+            path: 'business',
             children: [
                 {
-                    path: 'material-icons',
-                    element: <UtilsMaterialIcons />
+                    path: 'prices',
+                    element: <UtilsTablerIcons />
                 }
             ]
         },

@@ -50,23 +50,23 @@ const business = {
             breadcrumbs: false
         },
         {
-            id: 'icons',
+            id: 'prices',
             title: 'Lista de precios',
             type: 'collapse',
             icon: icons.IconCurrencyDollar,
             children: [
                 {
-                    id: 'tabler-icons',
+                    id: 'prices',
                     title: 'Tabler Icons',
                     type: 'item',
-                    url: '/icons/tabler-icons',
+                    url: '/business/prices',
                     breadcrumbs: false
                 },
                 {
-                    id: 'material-icons',
+                    id: 'prices',
                     title: 'Material Icons',
                     type: 'item',
-                    url: '/icons/material-icons',
+                    url: '/business/prices',
                     breadcrumbs: false
                 }
             ]
