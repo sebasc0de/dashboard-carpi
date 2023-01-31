@@ -7,7 +7,7 @@ export const Product = ({ data, labels }) => {
             <table>
                 <tr>
                     {labels.map((label, i) => (
-                        <th key={i}>Imagen</th>
+                        <th key={i}>{label}</th>
                     ))}
                 </tr>
 
@@ -20,6 +20,13 @@ export const Product = ({ data, labels }) => {
                         <td>{item.price}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
+                        <td>{item.price}</td>
+                        <td>{item.price}</td>
+                        <td>{item.price}</td>
+                        <td>
+                            <span className={styles.published}>publicado</span>
+                        </td>
+                        <td></td>
                     </tr>
                 ))}
             </table>
