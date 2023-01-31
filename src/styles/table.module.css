@@ -1,0 +1,21 @@
+.container {
+    width: 1200px;
+    height: 400px;
+    overflow: scroll;
+}
+
+.container table {
+    width: 1200px;
+}
+
+.container table th {
+    text-align: left;
+    min-width: 250px;
+    padding: 1rem;
+}
+
+.container table td {
+    font-size: 0.8rem;
+    min-width: 250px;
+    padding: 1rem;
+}
