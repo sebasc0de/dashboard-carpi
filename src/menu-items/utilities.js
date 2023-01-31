@@ -1,8 +1,9 @@
 // assets
-import { IconBox, IconCurrencyDollar, IconBuildingStore, IconFileText } from '@tabler/icons';
+import { IconBox, IconUser, IconCurrencyDollar, IconBuildingStore, IconFileText } from '@tabler/icons';
 
 // constant
 const icons = {
+    IconUser,
     IconBuildingStore,
     IconFileText,
     IconBox,
@@ -30,6 +31,14 @@ const utilities = {
             type: 'item',
             url: '/utils/util-color',
             icon: icons.IconFileText,
+            breadcrumbs: false
+        },
+        {
+            id: 'util-user',
+            title: 'Usuarios',
+            type: 'item',
+            url: '/utils/util-user',
+            icon: icons.IconUser,
             breadcrumbs: false
         },
         {

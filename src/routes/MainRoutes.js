@@ -45,12 +45,22 @@ const MainRoutes = {
                 }
             ]
         },
+
         {
             path: 'utils',
             children: [
                 {
                     path: 'util-color',
                     element: <UtilsColor />
+                }
+            ]
+        },
+        {
+            path: 'utils',
+            children: [
+                {
+                    path: 'util-user',
+                    element: <UtilsTypography />
                 }
             ]
         },
