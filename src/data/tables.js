@@ -11,3 +11,16 @@ export const ProductLabels = [
     'en promocion',
     'publicado'
 ];
+
+export const CompanyLabels = [
+    'Nombre',
+    'Tipo',
+    'Direccion',
+    'Telefono',
+    'Cuit',
+    'Email',
+    'Direccion fisica',
+    'Direccion de envio',
+    'Jefe de compras',
+    'Informacion adicional'
+];
