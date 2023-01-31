@@ -1,12 +1,12 @@
 // assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill } from '@tabler/icons';
+import { IconTypography, IconPalette, IconShadow, IconWindmill, IconBuildingStore, IconFileText } from '@tabler/icons';
 
 // constant
 const icons = {
-    IconTypography,
-    IconPalette,
     IconShadow,
-    IconWindmill
+    IconWindmill,
+    IconBuildingStore,
+    IconFileText
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
@@ -21,7 +21,7 @@ const utilities = {
             title: 'Productos',
             type: 'item',
             url: '/utils/util-typography',
-            icon: icons.IconTypography,
+            icon: icons.IconBuildingStore,
             breadcrumbs: false
         },
         {
@@ -29,7 +29,7 @@ const utilities = {
             title: 'Pedidos',
             type: 'item',
             url: '/utils/util-color',
-            icon: icons.IconPalette,
+            icon: icons.IconFileText,
             breadcrumbs: false
         },
         {
