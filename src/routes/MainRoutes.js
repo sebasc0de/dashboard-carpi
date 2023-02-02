@@ -59,15 +59,6 @@ const MainRoutes = {
             path: 'business',
             children: [
                 {
-                    path: 'users',
-                    element: <Users />
-                }
-            ]
-        },
-        {
-            path: 'business',
-            children: [
-                {
                     path: 'companies',
                     element: <Companies />
                 }
@@ -77,16 +68,7 @@ const MainRoutes = {
             path: 'business',
             children: [
                 {
-                    path: 'prices',
-                    element: <UtilsTablerIcons />
-                }
-            ]
-        },
-        {
-            path: 'business',
-            children: [
-                {
-                    path: 'prices',
+                    path: 'settings',
                     element: <UtilsTablerIcons />
                 }
             ]

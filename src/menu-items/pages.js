@@ -10,27 +10,27 @@ const icons = {
 
 const pages = {
     id: 'pages',
-    title: 'Roles y permisos',
+    title: 'Autenticacion',
     caption: '',
     type: 'group',
     children: [
         {
             id: 'authentication',
-            title: 'Authentication',
+            title: 'Usuarios y roles',
             type: 'collapse',
             icon: icons.IconKey,
 
             children: [
                 {
                     id: 'login3',
-                    title: 'Login',
+                    title: 'Usuarios',
                     type: 'item',
                     url: '/pages/login/login3',
                     target: true
                 },
                 {
                     id: 'register3',
-                    title: 'Register',
+                    title: 'Roles',
                     type: 'item',
                     url: '/pages/register/register3',
                     target: true

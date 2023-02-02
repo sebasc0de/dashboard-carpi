@@ -1,5 +1,5 @@
 // assets
-import { IconBox, IconUser, IconCurrencyDollar, IconBuildingStore, IconFileText } from '@tabler/icons';
+import { IconBox, IconUser, IconCurrencyDollar, IconBuildingStore, IconFileText, IconSettings } from '@tabler/icons';
 
 // constant
 const icons = {
@@ -7,7 +7,8 @@ const icons = {
     IconBuildingStore,
     IconFileText,
     IconBox,
-    IconCurrencyDollar
+    IconCurrencyDollar,
+    IconSettings
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
@@ -17,6 +18,14 @@ const business = {
     title: 'Empresa',
     type: 'group',
     children: [
+        {
+            id: 'companies',
+            title: 'Companias',
+            type: 'item',
+            url: '/business/companies',
+            icon: icons.IconBuildingStore,
+            breadcrumbs: false
+        },
         {
             id: 'products',
             title: 'Productos',
@@ -34,42 +43,12 @@ const business = {
             breadcrumbs: false
         },
         {
-            id: 'users',
-            title: 'Usuarios',
+            id: 'settings',
+            title: 'Configuraciones',
             type: 'item',
-            url: '/business/users',
-            icon: icons.IconUser,
+            url: '/business/settings',
+            icon: icons.IconSettings,
             breadcrumbs: false
-        },
-        {
-            id: 'companies',
-            title: 'Companias',
-            type: 'item',
-            url: '/business/companies',
-            icon: icons.IconBuildingStore,
-            breadcrumbs: false
-        },
-        {
-            id: 'prices',
-            title: 'Lista de precios',
-            type: 'collapse',
-            icon: icons.IconCurrencyDollar,
-            children: [
-                {
-                    id: 'prices',
-                    title: 'Tabler Icons',
-                    type: 'item',
-                    url: '/business/prices',
-                    breadcrumbs: false
-                },
-                {
-                    id: 'prices',
-                    title: 'Material Icons',
-                    type: 'item',
-                    url: '/business/prices',
-                    breadcrumbs: false
-                }
-            ]
         }
     ]
 };
