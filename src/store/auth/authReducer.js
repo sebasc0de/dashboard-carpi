@@ -1,11 +1,10 @@
-// project imports
-import config from 'config';
-
 // action - state management
 import * as actionTypes from './actions';
 
+const user = JSON.parse(localStorage.getItem('user'));
+
 export const initialState = {
-    user: undefined
+    user: user || undefined
 };
 
 // ==============================|| CUSTOMIZATION REDUCER ||============================== //
