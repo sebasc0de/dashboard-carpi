@@ -6,8 +6,6 @@ export const Private = ({ children }) => {
     const user = useSelector((state) => state.auth.user);
     const navigate = useNavigate();
 
-    console.log(user);
-
     useEffect(() => {
         !user ? navigate('iniciar-sesion') : navigate('/');
     }, [user]);
