@@ -4,6 +4,11 @@
     overflow: scroll;
 }
 
+.container a {
+    text-decoration: none;
+    color: #364152;
+}
+
 .container table {
     width: 1200px;
 }
