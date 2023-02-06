@@ -1,12 +1,12 @@
 import { Grid } from '@mui/material';
 
 // project imports
-import { Button } from 'components/Button';
+import { CompanyLabels as data } from '../../data/tables';
 import { gridSpacing } from 'store/constant';
-import { Product as Table } from 'components/tables/Product';
+import { Company as Table } from 'components/tables/Company';
+import { TitleOptions } from 'components/TitleOptions';
 import { useEffect, useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
-import { CompanyLabels as data } from '../../data/tables';
 import repository from '../../repositories/product';
 
 // ==============================|| TYPOGRAPHY ||============================== //
@@ -19,7 +19,7 @@ const Companies = () => {
     }, []);
 
     return (
-        <MainCard title="Companias" secondary={<Button text="Hello world" />}>
+        <MainCard title="Companias" secondary={<TitleOptions />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={products} labels={data} />

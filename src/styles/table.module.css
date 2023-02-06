@@ -18,6 +18,7 @@
     font-size: 0.8rem;
     min-width: 150px;
     padding: 1rem;
+    min-height: 70px;
 }
 
 .published {
@@ -28,4 +29,15 @@
     border-radius: 5px;
     color: white;
     text-align: center;
+}
+
+.actionButtons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 70px;
+}
+
+.actionButtons svg:hover {
+    cursor: pointer;
 }

@@ -11,6 +11,20 @@ export const DEFAULT_CONFIG = {
     }
 };
 
+export const TABLE_CONFIG = {
+    position: 'bottom-left',
+    hideProgressBar: true,
+    closeButton: false,
+    closeOnClick: false,
+    style: {
+        boxShadow: 'none',
+        background: '#198754',
+        color: 'white',
+        fontWeight: '600',
+        fontSize: '0.745rem'
+    }
+};
+
 export const ERROR_CONFIG = {
     position: 'bottom-left',
     hideProgressBar: true,

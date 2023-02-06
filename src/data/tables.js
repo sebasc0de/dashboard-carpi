@@ -13,6 +13,7 @@ export const ProductLabels = [
 ];
 
 export const CompanyLabels = [
+    '',
     'Nombre',
     'Tipo',
     'Direccion',
