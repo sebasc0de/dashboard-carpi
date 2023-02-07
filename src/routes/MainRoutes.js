@@ -13,7 +13,7 @@ const Orders = Loadable(lazy(() => import('views/business/Orders')));
 const Users = Loadable(lazy(() => import('views/business/Users')));
 const Roles = Loadable(lazy(() => import('views/business/Roles')));
 const Companies = Loadable(lazy(() => import('views/business/Companies')));
-const UtilsTablerIcons = Loadable(lazy(() => import('views/business/TablerIcons')));
+const Settings = Loadable(lazy(() => import('views/business/Settings')));
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
@@ -88,7 +88,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'settings',
-                    element: <UtilsTablerIcons />
+                    element: <Settings />
                 }
             ]
         },
