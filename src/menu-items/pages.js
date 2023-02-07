@@ -29,10 +29,10 @@ const pages = {
                     breadcrumbs: false
                 },
                 {
-                    id: 'users',
+                    id: 'roles',
                     title: 'Roles',
                     type: 'item',
-                    url: '/business/users',
+                    url: '/business/roles',
                     breadcrumbs: false
                 }
             ]

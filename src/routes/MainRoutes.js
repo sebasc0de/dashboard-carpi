@@ -11,6 +11,7 @@ const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')))
 const Products = Loadable(lazy(() => import('views/business/Products')));
 const Orders = Loadable(lazy(() => import('views/business/Orders')));
 const Users = Loadable(lazy(() => import('views/business/Users')));
+const Roles = Loadable(lazy(() => import('views/business/Roles')));
 const Companies = Loadable(lazy(() => import('views/business/Companies')));
 const UtilsTablerIcons = Loadable(lazy(() => import('views/business/TablerIcons')));
 
@@ -70,6 +71,15 @@ const MainRoutes = {
                 {
                     path: 'users',
                     element: <Users />
+                }
+            ]
+        },
+        {
+            path: 'business',
+            children: [
+                {
+                    path: 'roles',
+                    element: <Roles />
                 }
             ]
         },
