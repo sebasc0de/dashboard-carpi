@@ -68,6 +68,15 @@ const MainRoutes = {
             path: 'business',
             children: [
                 {
+                    path: 'users',
+                    element: <Users />
+                }
+            ]
+        },
+        {
+            path: 'business',
+            children: [
+                {
                     path: 'settings',
                     element: <UtilsTablerIcons />
                 }

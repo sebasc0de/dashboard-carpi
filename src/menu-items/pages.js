@@ -22,18 +22,18 @@ const pages = {
 
             children: [
                 {
-                    id: 'login3',
+                    id: 'users',
                     title: 'Usuarios',
                     type: 'item',
-                    url: '/pages/login/login3',
-                    target: true
+                    url: '/business/users',
+                    breadcrumbs: false
                 },
                 {
-                    id: 'register3',
+                    id: 'users',
                     title: 'Roles',
                     type: 'item',
-                    url: '/pages/register/register3',
-                    target: true
+                    url: '/business/users',
+                    breadcrumbs: false
                 }
             ]
         }
