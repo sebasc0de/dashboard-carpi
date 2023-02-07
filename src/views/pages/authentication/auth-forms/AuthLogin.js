@@ -137,7 +137,7 @@ const FirebaseLogin = ({ ...others }) => {
                         const { submit, ...data } = values;
                         const login = await Auth.loginWithEmailAndPassword(data);
                         login && setUser(login.data);
-                        dispatch({ type: SET_USER, SET_USER: login.data });
+                        dispatch({ type: SET_USER, payload: login.data });
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);

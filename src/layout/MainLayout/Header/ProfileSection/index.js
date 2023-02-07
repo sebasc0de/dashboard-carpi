@@ -60,6 +60,7 @@ const ProfileSection = () => {
     const anchorRef = useRef(null);
     const handleLogout = async () => {
         dispatch({ type: LOGOUT, payload: undefined });
+        localStorage.removeItem('user');
     };
 
     const handleClose = (event) => {

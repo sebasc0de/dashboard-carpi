@@ -11,7 +11,11 @@ class AuthService {
     }
 
     async revalidateToken(oldToken) {
-        return axios.get(config.REVALIDATE_TOKEN, oldToken);
+        return axios.get(config.REVALIDATE_TOKEN, {
+            headers: {
+                Authorization: `Bearer ${oldToken}`
+            }
+        });
     }
 }
 
