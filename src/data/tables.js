@@ -1,4 +1,5 @@
 export const ProductLabels = [
+    '',
     'Imagen',
     'Carpi Id',
     'Nombre',
