@@ -15,6 +15,8 @@ import NavigationScroll from 'layout/NavigationScroll';
 // toastify styles
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+
+// layout auth
 import { Private } from 'layout/Private';
 
 // ==============================|| APP ||============================== //

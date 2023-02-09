@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
 import { ProductLabels } from '../../data/tables';
 import repository from '../../repositories/product';
+import { TitleOptions } from 'components/TitleOptions';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
@@ -19,7 +20,7 @@ const Products = () => {
     }, []);
 
     return (
-        <MainCard title="Productos" secondary={<Button text="Hello world" />}>
+        <MainCard title="Productos" secondary={<TitleOptions />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={products} labels={ProductLabels} />
