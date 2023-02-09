@@ -6,7 +6,9 @@ export const Buttons = ({ deleteAction, hideAction }) => {
     const handleDelete = () => {};
 
     // Hide handler
-    const handleHide = () => {};
+    const handleHide = () => {
+        hideAction();
+    };
 
     return (
         <td className={styles.actionButtons}>
