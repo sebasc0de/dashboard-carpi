@@ -93,7 +93,7 @@ const MainRoutes = {
             ]
         },
         {
-            path: 'sample-page',
+            path: 'users/:id',
             element: <SamplePage />
         }
     ]
