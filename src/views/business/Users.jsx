@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import { Button } from 'components/Button';
 import { UsersLabels as data } from '../../data/tables';
 import { gridSpacing } from 'store/constant';
-import { Product as Table } from 'components/tables/Product';
+import { User as Table } from 'components/tables/User';
 import { useEffect, useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
 import repository from '../../repositories/product';

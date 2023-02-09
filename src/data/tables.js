@@ -27,6 +27,17 @@ export const CompanyLabels = [
     'Informacion adicional'
 ];
 
-export const UsersLabels = ['Email', 'Contrasenia', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];
+export const UsersLabels = [
+    '',
+    'Email',
+    'Contrasenia',
+    'Nombre completo',
+    'Activo',
+    'Direccion',
+    'Telefono',
+    'Pais',
+    'Provincia',
+    'Ciudad'
+];
 
 export const OrdersLabels = ['Email', 'Contrasenia', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];

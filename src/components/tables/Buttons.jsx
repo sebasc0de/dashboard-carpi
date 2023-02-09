@@ -12,8 +12,8 @@ export const Buttons = ({ deleteAction, hideAction }) => {
 
     return (
         <td className={styles.actionButtons}>
-            <IconEyeOff onClick={handleHide} size={20} />
-            <IconTrash onClick={handleDelete} size={20} />
+            {hideAction && <IconEyeOff onClick={handleHide} size={20} />}
+            {deleteAction && <IconTrash onClick={handleDelete} size={20} />}
         </td>
     );
 };
