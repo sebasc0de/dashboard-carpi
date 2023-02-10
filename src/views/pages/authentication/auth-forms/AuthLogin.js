@@ -141,7 +141,6 @@ const FirebaseLogin = ({ ...others }) => {
                         }
                     } catch (err) {
                         console.log(err);
-                        // toast('algo anda mal', ERROR_CONFIG);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
                             setErrors({ submit: err.message });
