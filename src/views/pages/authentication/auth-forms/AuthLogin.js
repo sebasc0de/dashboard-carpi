@@ -39,7 +39,6 @@ import { SET_USER } from '../../../../store/auth/actions';
 
 // login service
 import Auth from '../../../../services/Auth';
-import useLocalStorage from 'hooks/useLocalStorage';
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
@@ -50,7 +49,6 @@ const FirebaseLogin = ({ ...others }) => {
     const customization = useSelector((state) => state.customization);
     const dispatch = useDispatch();
     const [checked, setChecked] = useState(true);
-    const [user, setUser] = useLocalStorage('user', {});
 
     const googleHandler = async () => {
         console.error('Login');
@@ -136,8 +134,7 @@ const FirebaseLogin = ({ ...others }) => {
                     try {
                         const { submit, ...data } = values;
                         const login = await Auth.loginWithEmailAndPassword(data);
-                        login && setUser(login.data);
-                        dispatch({ type: SET_USER, payload: login.data });
+                        login && dispatch({ type: SET_USER, payload: login.data });
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);

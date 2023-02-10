@@ -1,10 +1,8 @@
 // action - state management
 import * as actionTypes from './actions';
 
-const user = JSON.parse(localStorage.getItem('user'));
-
 export const initialState = {
-    user: user || undefined
+    user: undefined
 };
 
 // ==============================|| CUSTOMIZATION REDUCER ||============================== //
