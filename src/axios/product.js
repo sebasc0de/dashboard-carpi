@@ -1,6 +1,6 @@
 import { API_URL } from '../config/backend';
 
-const endpoint = '/api/v1/product';
+const endpoint = '/api/v1/product/';
 
 // End point base
 const BASE_URL = API_URL + endpoint;
