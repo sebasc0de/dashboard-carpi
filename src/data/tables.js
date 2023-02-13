@@ -40,4 +40,6 @@ export const UsersLabels = [
     'Ciudad'
 ];
 
+export const RolesLabels = ['', 'Rol', 'Permisos'];
+
 export const OrdersLabels = ['Email', 'Contrasenia', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];
