@@ -7,22 +7,25 @@ import { gridSpacing } from 'store/constant';
 import { User as Table } from 'components/tables/User';
 import { useEffect, useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
-import repository from '../../repositories/product';
+import repository from '../../repositories/user';
+import { useSelector } from 'react-redux';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
 const Users = () => {
-    const [products, setProducts] = useState([]);
+    const user = useSelector((state) => state.auth.user);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        repository.getAll().then(setProducts);
+        repository.getAll(user.token).then(setUsers);
     }, []);
 
     return (
         <MainCard title="Usuarios" secondary={<Button text="Hello world" />}>
             <Grid container spacing={gridSpacing}>
+                {user.token}
                 <Grid item xs={12} sm={12}>
-                    <Table data={products} labels={data} />
+                    <Table data={users} labels={data} />
                 </Grid>
             </Grid>
         </MainCard>
