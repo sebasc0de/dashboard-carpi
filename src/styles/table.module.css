@@ -50,6 +50,12 @@
 }
 
 /* Order state */
-.orderButton {
-    width: 100%;
+.orderButton button:first-child {
+    min-width: 100px;
+    padding: 0.2rem;
+    font-size: 0.85rem;
+}
+
+.orderButton button svg {
+    width: 80%;
 }

@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
+import styles from '../../styles/table.module.css';
 
 const options = ['Pendiente', 'Pagado', 'Enviado'];
 
@@ -38,7 +39,7 @@ const OrderState = () => {
     };
 
     return (
-        <td>
+        <td className={styles.orderButton}>
             <ButtonGroup variant="contained" ref={anchorRef} aria-label="split-button">
                 <Button onClick={handleClick}>{options[selectedIndex]}</Button>
                 <Button
