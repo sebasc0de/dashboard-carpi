@@ -1,7 +1,7 @@
-import { Buttons } from './Buttons';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from '../../styles/table.module.css';
+import OrderState from './OrderState';
 
 export const Order = ({ data, labels }) => {
     const user = useSelector((state) => state.auth.user);
@@ -20,8 +20,7 @@ export const Order = ({ data, labels }) => {
 
                 {data.map((item) => (
                     <tr key={item.id}>
-                        <Buttons hideAction={() => toggleVisibility(item.id, false)} />
-                        <td></td>
+                        <OrderState />
                         <td>{item.carpiId}</td>
                         <td>
                             <Link to={`/products/${item.id}`}>{item.name}</Link>

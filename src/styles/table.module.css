@@ -21,11 +21,12 @@
 
 .container table td {
     font-size: 0.8rem;
-    min-width: 150px;
+    min-width: 250px;
     padding: 1rem;
     min-height: 70px;
 }
 
+/* Publish state */
 .published {
     background: #198754;
     padding: 0.225rem;
@@ -36,6 +37,7 @@
     text-align: center;
 }
 
+/* Action buttons */
 .actionButtons {
     display: flex;
     align-items: center;
@@ -45,4 +47,9 @@
 
 .actionButtons svg:hover {
     cursor: pointer;
+}
+
+/* Order state */
+.orderButton {
+    width: 100%;
 }
