@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import OrderButton from './OrderButton';
 import styles from '../../styles/table.module.css';
-import OrderState from './OrderState';
+import { OrderState } from './OrderState';
 
 export const Order = ({ data, labels }) => {
     const user = useSelector((state) => state.auth.user);
@@ -20,8 +21,8 @@ export const Order = ({ data, labels }) => {
 
                 {data.map((item) => (
                     <tr key={item.id}>
-                        <OrderState />
-                        <td>{item.carpiId}</td>
+                        <OrderButton />
+                        <OrderState state="pagado" />
                         <td>
                             <Link to={`/products/${item.id}`}>{item.name}</Link>
                         </td>

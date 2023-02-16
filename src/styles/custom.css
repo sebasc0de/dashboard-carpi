@@ -1,0 +1,16 @@
+.state {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.paid {
+    color: green;
+}
+
+.pending {
+    color: orange;
+}
+
+.unpaid {
+    color: red;
+}
