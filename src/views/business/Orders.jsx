@@ -1,14 +1,14 @@
 import { Grid } from '@mui/material';
+import { gridSpacing } from 'store/constant';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import MainCard from 'ui-component/cards/MainCard';
 
 // project imports
 import { Button } from 'components/Button';
-import { gridSpacing } from 'store/constant';
-import { Product as Table } from 'components/tables/Product';
+import { Order as Table } from 'components/tables/Order';
 import { OrdersLabels as data } from '../../data/tables';
-import { useEffect, useState } from 'react';
-import MainCard from 'ui-component/cards/MainCard';
-import repository from '../../repositories/order';
-import { useSelector } from 'react-redux';
+import repository from '../../repositories/product';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
@@ -17,7 +17,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        repository.getAll(user.token).then(setOrders);
+        repository.getAll().then(setOrders);
     }, []);
 
     return (
