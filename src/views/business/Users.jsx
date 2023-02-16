@@ -23,7 +23,6 @@ const Users = () => {
     return (
         <MainCard title="Usuarios" secondary={<Button text="Hello world" />}>
             <Grid container spacing={gridSpacing}>
-                {user.token}
                 <Grid item xs={12} sm={12}>
                     <Table data={users} labels={data} />
                 </Grid>
