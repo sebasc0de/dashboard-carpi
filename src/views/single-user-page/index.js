@@ -14,10 +14,10 @@ const SamplePage = () => {
     const id = useParams().id;
 
     useEffect(() => {
-        service.getUserById(id).then(setUser);
+        service.getUserById(id).then(console.log);
     }, []);
 
-    console.log(user);
+    console.log('soy re lindo');
 
     return (
         <MainCard title="Usuarios">
