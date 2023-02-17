@@ -1,6 +1,7 @@
 // material-ui
 import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 
 // project imports
@@ -10,14 +11,13 @@ import MainCard from 'ui-component/cards/MainCard';
 import service from '../../services/User';
 
 const SamplePage = () => {
+    const token = useSelector((state) => state.auth.user.token);
     const [user, setUser] = useState(undefined);
     const id = useParams().id;
 
     useEffect(() => {
-        service.getUserById(id).then(console.log);
+        service.getUserById(id, token).then(setUser);
     }, []);
-
-    console.log('soy re lindo');
 
     return (
         <MainCard title="Usuarios">
