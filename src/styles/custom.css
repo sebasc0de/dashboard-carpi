@@ -3,14 +3,14 @@
     text-transform: capitalize;
 }
 
-.paid {
+.success {
     color: green;
 }
 
-.pending {
+.warning {
     color: orange;
 }
 
-.unpaid {
+.fail {
     color: red;
 }

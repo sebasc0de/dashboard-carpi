@@ -1,3 +1,4 @@
+import { ActiveState } from './ActiveState';
 import { Buttons } from './Buttons';
 import { Link } from 'react-router-dom';
 import { TABLE_CONFIG } from 'config/Notifications';
@@ -26,7 +27,7 @@ export const User = ({ data, labels }) => {
                         </td>
 
                         <td>{item.fullName}</td>
-                        <td>Direccion</td>
+                        <ActiveState state={item.isActive} />
                         <td>Phone</td>
                         <td>Cuit</td>
                         <td>Email</td>
