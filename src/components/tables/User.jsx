@@ -19,13 +19,13 @@ export const User = ({ data, labels }) => {
 
                 {data.map((item) => (
                     <tr key={item.id}>
-                        <Buttons />
+                        <Buttons hideAction={() => handleDelete()} />
 
                         <td>
-                            <Link to={`/users/${item.id}`}>{item.name}</Link>
+                            <Link to={`/users/${item.id}`}>{item.email}</Link>
                         </td>
 
-                        <td>Mayorista/minorista</td>
+                        <td>{item.fullName}</td>
                         <td>Direccion</td>
                         <td>Phone</td>
                         <td>Cuit</td>
