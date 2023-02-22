@@ -1,5 +1,5 @@
 // assets
-import { IconBox, IconUser, IconCurrencyDollar, IconBuildingStore, IconFileText, IconSettings } from '@tabler/icons';
+import { IconBox, IconLine, IconUser, IconCurrencyDollar, IconBuildingStore, IconFileText, IconSettings } from '@tabler/icons';
 
 // constant
 const icons = {
@@ -8,7 +8,8 @@ const icons = {
     IconFileText,
     IconBox,
     IconCurrencyDollar,
-    IconSettings
+    IconSettings,
+    IconLine
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
@@ -40,6 +41,14 @@ const business = {
             type: 'item',
             url: '/business/orders',
             icon: icons.IconFileText,
+            breadcrumbs: false
+        },
+        {
+            id: 'lines',
+            title: 'Lineas de productos',
+            type: 'item',
+            url: '/business/lines',
+            icon: icons.IconLine,
             breadcrumbs: false
         },
         {
