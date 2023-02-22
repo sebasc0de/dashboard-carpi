@@ -1,11 +1,11 @@
 import { Button } from './Button';
 import { RefreshButton } from './RefreshButton';
 
-export const TitleOptions = () => {
+export const TitleOptions = ({ textButton }) => {
     return (
         <div>
             <RefreshButton />
-            <Button text="Agregar company" />
+            <Button text={textButton} />
         </div>
     );
 };
