@@ -1,7 +1,7 @@
 import { Buttons } from './Buttons';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from '../../styles/table.module.css';
-import { Link } from 'react-router-dom';
 
 export const Product = ({ data, labels }) => {
     const user = useSelector((state) => state.auth.user);
@@ -23,11 +23,18 @@ export const Product = ({ data, labels }) => {
                 {data.map((item) => (
                     <tr key={item.id}>
                         <Buttons hideAction={() => toggleVisibility(item.id, false)} />
-                        <td></td>
-                        <td>{item.carpiId}</td>
                         <td>
+                            <img
+                                src="https://erasmusnation-com.ams3.digitaloceanspaces.com/woocommerce-placeholder.png"
+                                alt=""
+                                width={50}
+                                height={50}
+                            />
+                        </td>
+                        <td className={styles.productName}>
                             <Link to={`/products/${item.id}`}>{item.name}</Link>
                         </td>
+                        <td>{item.carpiId}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>

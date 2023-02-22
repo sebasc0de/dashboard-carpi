@@ -59,3 +59,9 @@
 .orderButton button svg {
     width: 80%;
 }
+
+/* Product name */
+
+.productName a {
+    color: rgb(161, 98, 219);
+}
