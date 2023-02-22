@@ -6,7 +6,6 @@ import MainCard from 'ui-component/cards/MainCard';
 // project imports
 import repository from '../../repositories/product';
 import Form from 'components/forms/SingleProduct';
-import ChangePassword from 'components/forms/ChangePassword';
 
 const SamplePage = () => {
     const [product, setProduct] = useState(undefined);
@@ -19,7 +18,6 @@ const SamplePage = () => {
     return (
         <MainCard title="Actualizar datos">
             <Form data={product} />
-            <ChangePassword />
         </MainCard>
     );
 };

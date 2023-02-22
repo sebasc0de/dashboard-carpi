@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // material-ui
@@ -24,9 +22,6 @@ const Form = ({ ...others }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const customization = useSelector((state) => state.customization);
-
-    const [strength, setStrength] = useState(0);
-    const [level, setLevel] = useState();
 
     if (!product) return <p>Esperando...</p>;
     return (
