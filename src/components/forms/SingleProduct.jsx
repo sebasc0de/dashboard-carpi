@@ -20,7 +20,7 @@ import Auth from 'services/Auth';
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const Form = ({ ...others }) => {
-    const user = others.data;
+    const product = others.data;
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const customization = useSelector((state) => state.customization);
@@ -28,19 +28,21 @@ const Form = ({ ...others }) => {
     const [strength, setStrength] = useState(0);
     const [level, setLevel] = useState();
 
-    if (!user) return <p>Esperando...</p>;
+    if (!product) return <p>Esperando...</p>;
     return (
         <>
-            <h2>Datos de la cuenta</h2>
+            <h2>Datos del producto</h2>
             <Formik
                 initialValues={{
-                    fullName: user.fullName,
-                    email: user.email,
+                    name: product.name,
+                    line: product.type,
+                    size: product.size,
+                    stock: product.stock,
+                    description: product.description,
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
-                    fullName: Yup.string().required('Debes ingresar un nombre de usuario'),
-                    email: Yup.string().email('Debe ser un email valido').max(255).required('El email es requerido')
+                    name: Yup.string().required('Debes ingresar un nombre de usuario')
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
@@ -61,60 +63,81 @@ const Form = ({ ...others }) => {
             >
                 {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                     <form noValidate onSubmit={handleSubmit} {...others}>
-                        <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-                            <InputLabel htmlFor="outlined-adornment-email-register">Nombre completo</InputLabel>
+                        {/* Product name */}
+                        <FormControl fullWidth error={Boolean(touched.name && errors.name)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-name">Nombre completo</InputLabel>
                             <OutlinedInput
-                                id="outlined-adornment-email-register"
-                                type="email"
-                                value={values.fullName}
-                                name="fullName"
+                                id="outlined-adornment-product-name"
+                                type="text"
+                                value={values.name}
+                                name="name"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 inputProps={{}}
                             />
-                            {touched.fullName && errors.fullName && (
+                            {touched.name && errors.name && (
                                 <FormHelperText error id="standard-weight-helper-text--register">
-                                    {errors.fullName}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-                        <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-                            <InputLabel htmlFor="outlined-adornment-email-register">Correo electronico</InputLabel>
-                            <OutlinedInput
-                                id="outlined-adornment-email-register"
-                                type="email"
-                                value={values.email}
-                                name="email"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                inputProps={{}}
-                            />
-                            {touched.email && errors.email && (
-                                <FormHelperText error id="standard-weight-helper-text--register">
-                                    {errors.email}
+                                    {errors.name}
                                 </FormHelperText>
                             )}
                         </FormControl>
 
-                        {strength !== 0 && (
-                            <FormControl fullWidth>
-                                <Box sx={{ mb: 2 }}>
-                                    <Grid container spacing={2} alignItems="center">
-                                        <Grid item>
-                                            <Box
-                                                style={{ backgroundColor: level?.color }}
-                                                sx={{ width: 85, height: 8, borderRadius: '7px' }}
-                                            />
-                                        </Grid>
-                                        <Grid item>
-                                            <Typography variant="subtitle1" fontSize="0.75rem">
-                                                {level?.label}
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                </Box>
-                            </FormControl>
-                        )}
+                        {/* Product line */}
+                        <FormControl fullWidth error={Boolean(touched.line && errors.line)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-line">Linea de producto</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-line"
+                                type="text"
+                                value={values.line}
+                                name="line"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.name && errors.name && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.name}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Product size */}
+                        <FormControl fullWidth error={Boolean(touched.size && errors.size)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-size">Tamaño del producto</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-size"
+                                type="text"
+                                value={values.size}
+                                name="size"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.size && errors.size && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.name}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Product stock */}
+                        <FormControl fullWidth error={Boolean(touched.stock && errors.stock)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-stock">Stock del producto</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-stock"
+                                type="number"
+                                value={values.stock}
+                                name="stock"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.size && errors.size && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.name}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
 
                         <Box sx={{ mt: 2 }}>
                             <AnimateButton>
