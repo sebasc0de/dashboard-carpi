@@ -11,6 +11,8 @@ import { useSelector } from 'react-redux';
 export const User = ({ data, labels }) => {
     const token = useSelector((state) => state.auth.user.token);
 
+    console.log(data);
+
     const handleDelete = (id, state) => service.toggleUserState(id, state, token);
 
     if (!data | !labels) return <p>Loading</p>;
