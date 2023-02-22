@@ -13,11 +13,12 @@ import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // assets
-import Auth from 'services/Auth';
+import service from '../../services/Product';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const Form = ({ ...others }) => {
+    const token = useSelector((state) => state.auth.user.token);
     const product = others.data;
     const theme = useTheme();
     const scriptedRef = useScriptRef();
@@ -30,10 +31,9 @@ const Form = ({ ...others }) => {
             <Formik
                 initialValues={{
                     name: product.name,
-                    line: product.type,
                     size: product.size,
                     stock: product.stock,
-                    description: product.description,
+                    description: 'esto es una prueba',
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
@@ -42,7 +42,8 @@ const Form = ({ ...others }) => {
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         const { submit, ...data } = values;
-                        const register = await Auth.registerWithEmailAndPassword(data);
+                        service.editProductById(product.id, data, token);
+
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
@@ -66,25 +67,6 @@ const Form = ({ ...others }) => {
                                 type="text"
                                 value={values.name}
                                 name="name"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                inputProps={{}}
-                            />
-                            {touched.name && errors.name && (
-                                <FormHelperText error id="standard-weight-helper-text--register">
-                                    {errors.name}
-                                </FormHelperText>
-                            )}
-                        </FormControl>
-
-                        {/* Product line */}
-                        <FormControl fullWidth error={Boolean(touched.line && errors.line)} sx={{ ...theme.typography.customInput }}>
-                            <InputLabel htmlFor="outlined-adornment-product-line">Linea de producto</InputLabel>
-                            <OutlinedInput
-                                id="outlined-adornment-product-line"
-                                type="text"
-                                value={values.line}
-                                name="line"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 inputProps={{}}
