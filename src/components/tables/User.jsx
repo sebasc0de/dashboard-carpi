@@ -2,11 +2,16 @@ import { ActiveState } from './ActiveState';
 import { Buttons } from './Buttons';
 import { Link } from 'react-router-dom';
 import { TABLE_CONFIG } from 'config/Notifications';
-import { toast } from 'react-toastify';
 import styles from '../../styles/table.module.css';
 
+// project imports
+import service from '../../services/User';
+import { useSelector } from 'react-redux';
+
 export const User = ({ data, labels }) => {
-    const handleDelete = (param) => toast(`El product se ha borrado con exito, refresca la pagina para ver los cambios`, TABLE_CONFIG);
+    const token = useSelector((state) => state.auth.user.token);
+
+    const handleDelete = (id, state) => service.toggleUserState(id, state, token);
 
     if (!data | !labels) return <p>Loading</p>;
     return (
@@ -20,7 +25,7 @@ export const User = ({ data, labels }) => {
 
                 {data.map((item) => (
                     <tr key={item.id}>
-                        <Buttons hideAction={() => handleDelete()} />
+                        <Buttons hideAction={() => handleDelete(item.id, item.isActive)} />
 
                         <td>
                             <Link to={`/users/${item.id}`}>{item.email}</Link>

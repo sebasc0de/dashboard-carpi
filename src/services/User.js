@@ -11,6 +11,24 @@ class UserService {
 
         return request.data;
     }
+
+    // Change user active state
+    async toggleUserState(id, state, token) {
+        try {
+            const request = await axios.patch(
+                config.EDIT_BY_ID + id,
+                { fullName: 'Pedrito' },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+            console.log(request);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }
 
 export default new UserService();
