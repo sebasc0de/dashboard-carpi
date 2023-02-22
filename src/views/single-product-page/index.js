@@ -1,20 +1,27 @@
 // material-ui
-import { Typography } from '@mui/material';
-
-// project imports
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import MainCard from 'ui-component/cards/MainCard';
 
-// ==============================|| SAMPLE PAGE ||============================== //
+// project imports
+import repository from '../../repositories/product';
+import Form from 'components/forms/SingleProduct';
+import ChangePassword from 'components/forms/ChangePassword';
 
-const SamplePage = () => (
-    <MainCard title="Sample Cardasads">
-        <Typography variant="body2">
-            Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie magna alissa. Ut enif
-            ad minim venice, quin nostrum exercitation illampu laborings nisi ut liquid ex ea commons construal. Duos aube grue dolor in
-            reprehended in voltage veil esse colum doolie eu fujian bulla parian. Exceptive sin ocean cuspidate non president, sunk in culpa
-            qui officiate descent molls anim id est labours.
-        </Typography>
-    </MainCard>
-);
+const SamplePage = () => {
+    const [product, setProduct] = useState(undefined);
+    const id = useParams().id;
+
+    useEffect(() => {
+        repository.getById(id).then(setProduct);
+    }, []);
+
+    return (
+        <MainCard title="Actualizar datos">
+            <Form data={product} />
+            <ChangePassword />
+        </MainCard>
+    );
+};
 
 export default SamplePage;
