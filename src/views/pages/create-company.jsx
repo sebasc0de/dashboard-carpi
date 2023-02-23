@@ -59,7 +59,7 @@ const FirebaseLogin = ({ ...others }) => {
                     <form noValidate onSubmit={handleSubmit} {...others}>
                         {/* Name */}
                         <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-                            <InputLabel htmlFor="outlined-adornment-product-name">Nombre del producto</InputLabel>
+                            <InputLabel htmlFor="outlined-adornment-product-name">Nombre</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-product-name"
                                 type="text"
@@ -76,13 +76,13 @@ const FirebaseLogin = ({ ...others }) => {
                             )}
                         </FormControl>
 
-                        {/* Description */}
+                        {/* Direccion */}
                         <FormControl
                             fullWidth
                             error={Boolean(touched.direction && errors.direction)}
                             sx={{ ...theme.typography.customInput }}
                         >
-                            <InputLabel htmlFor="outlined-adornment-product-desc">Descripcion</InputLabel>
+                            <InputLabel htmlFor="outlined-adornment-product-desc">Direccion</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-product-desc"
                                 type="text"
@@ -101,7 +101,7 @@ const FirebaseLogin = ({ ...others }) => {
 
                         {/* Stock */}
                         <FormControl fullWidth error={Boolean(touched.phone && errors.phone)} sx={{ ...theme.typography.customInput }}>
-                            <InputLabel htmlFor="outlined-adornment-product-stock">Stock</InputLabel>
+                            <InputLabel htmlFor="outlined-adornment-product-stock">Telefono</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-product-stock"
                                 type="text"
