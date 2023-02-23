@@ -15,7 +15,7 @@ const Discount = ({ id }) => {
     return (
         <td className={styles.discount}>
             <TextField onChange={(e) => setValue(e.target.value)} id="filled-basic" label="Descuento" variant="filled" />
-            <Button size="small" variant="contained">
+            <Button onClick={handler} size="small" variant="contained">
                 Aplicar
             </Button>
         </td>
