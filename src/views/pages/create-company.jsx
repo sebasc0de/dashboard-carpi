@@ -46,7 +46,7 @@ const FirebaseLogin = ({ ...others }) => {
                             setSubmitting(false);
                         }
                     } catch (err) {
-                        console.log(err);
+                        toast('Ha habido un error con el servidor, intentalo mas tarde', ERROR_CONFIG);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
                             setErrors({ user: err.message });
