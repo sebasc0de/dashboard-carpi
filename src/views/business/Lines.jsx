@@ -8,23 +8,23 @@ import MainCard from 'ui-component/cards/MainCard';
 import { Button } from 'components/Button';
 import { Order as Table } from 'components/tables/Order';
 import { OrdersLabels as data } from '../../data/tables';
-import repository from '../../repositories/product';
+import repository from '../../repositories/line';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
 const Lines = () => {
     const user = useSelector((state) => state.auth.user);
-    const [orders, setOrders] = useState([]);
+    const [lines, setLines] = useState([]);
 
     useEffect(() => {
-        repository.getAll().then(setOrders);
+        repository.getAll().then(setLines);
     }, []);
 
     return (
         <MainCard title="Lineas" secondary={<Button text="Hello world" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
-                    <Table data={orders} labels={data} />
+                    <Table data={lines} labels={data} />
                 </Grid>
             </Grid>
         </MainCard>
