@@ -12,6 +12,8 @@ import { Formik } from 'formik';
 import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 import repository from '../../repositories/company';
+import { toast } from 'react-toastify';
+import { ERROR_CONFIG, TABLE_CONFIG } from 'config/Notifications';
 
 const FirebaseLogin = ({ ...others }) => {
     const theme = useTheme();
@@ -24,9 +26,9 @@ const FirebaseLogin = ({ ...others }) => {
         <>
             <Formik
                 initialValues={{
-                    name: 'Compania de prueba',
-                    direction: 'SAn pedro 321',
-                    phone: '3382819002002',
+                    name: '',
+                    direction: '',
+                    phone: '',
                     user: user.id
                 }}
                 validationSchema={Yup.object().shape({
@@ -36,13 +38,15 @@ const FirebaseLogin = ({ ...others }) => {
                     try {
                         const { user: submit, ...data } = values;
                         const request = await repository.create(data, user.token);
-                        console.log(request);
+
+                        if (request) toast('Todo ha salido bien, la compania se creo con exito', TABLE_CONFIG);
+
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
                         }
                     } catch (err) {
-                        console.log(err);
+                        toast('Ha habido un error con el servidor, intentalo mas tarde', ERROR_CONFIG);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
                             setErrors({ user: err.message });
@@ -125,7 +129,7 @@ const FirebaseLogin = ({ ...others }) => {
                                     variant="contained"
                                     color="secondary"
                                 >
-                                    Crear producto
+                                    Crear compania
                                 </Button>
                             </AnimateButton>
                         </Box>
