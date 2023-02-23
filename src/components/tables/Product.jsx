@@ -29,7 +29,9 @@ export const Product = ({ data, labels }) => {
                                 height={50}
                             />
                         </td>
-                        <td className={styles.productName}>{item.name}</td>
+                        <td className={styles.link}>
+                            <a>{item.name}</a>
+                        </td>
                         <td>{item.carpiId}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>

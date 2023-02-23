@@ -17,7 +17,7 @@ export const Company = ({ data, labels }) => {
                     <tr key={item.id}>
                         <Discount id={item.id} />
 
-                        <td>
+                        <td className={styles.link}>
                             <Link to={`/companies/${item.id}`}>{item.name}</Link>
                         </td>
 
