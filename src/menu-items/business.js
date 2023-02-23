@@ -36,14 +36,6 @@ const business = {
             breadcrumbs: false
         },
         {
-            id: 'orders',
-            title: 'Pedidos',
-            type: 'item',
-            url: '/business/orders',
-            icon: icons.IconFileText,
-            breadcrumbs: false
-        },
-        {
             id: 'lines',
             title: 'Lineas de productos',
             type: 'item',
@@ -51,6 +43,15 @@ const business = {
             icon: icons.IconLine,
             breadcrumbs: false
         },
+        {
+            id: 'orders',
+            title: 'Pedidos',
+            type: 'item',
+            url: '/business/orders',
+            icon: icons.IconFileText,
+            breadcrumbs: false
+        },
+
         {
             id: 'settings',
             title: 'Configuraciones',

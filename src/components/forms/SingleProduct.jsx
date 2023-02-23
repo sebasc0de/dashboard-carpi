@@ -42,8 +42,8 @@ const Form = ({ ...others }) => {
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         const { submit, ...data } = values;
-                        service.editProductById(product.id, data, token);
-
+                        const request = await service.editProductById(product.id, data, token);
+                        console.log(request);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);

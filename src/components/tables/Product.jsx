@@ -8,8 +8,6 @@ export const Product = ({ data, labels }) => {
 
     const toggleVisibility = async (id, value) => console.log('estamos en espera');
 
-    console.log(data);
-
     if (!data | !labels) return <p>Loading</p>;
     return (
         <div className={styles.container}>
@@ -31,14 +29,14 @@ export const Product = ({ data, labels }) => {
                                 height={50}
                             />
                         </td>
-                        <td className={styles.productName}>
-                            <Link to={`/products/${item.id}`}>{item.name}</Link>
-                        </td>
+                        <td className={styles.productName}>{item.name}</td>
                         <td>{item.carpiId}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
-                        <td>{item.price}</td>
+                        <td>
+                            <Link to={`/products/${item.id}`}>{item.price}</Link>
+                        </td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>

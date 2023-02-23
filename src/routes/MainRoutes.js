@@ -21,7 +21,7 @@ const SingleUser = Loadable(lazy(() => import('views/single-user-page')));
 const SingleProduct = Loadable(lazy(() => import('views/single-product-page')));
 const SingleOrder = Loadable(lazy(() => import('views/single-order-page')));
 const SingleCompany = Loadable(lazy(() => import('views/single-company-page')));
-const CreateProduct = Loadable(lazy(() => import('views/pages/products/create-product-page')));
+const CreateCompany = Loadable(lazy(() => import('views/pages/create-company')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -107,8 +107,8 @@ const MainRoutes = {
         },
         // Create product page
         {
-            path: 'create-product',
-            element: <CreateProduct />
+            path: 'create-company',
+            element: <CreateCompany />
         },
 
         // Single products page

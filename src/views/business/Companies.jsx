@@ -7,22 +7,20 @@ import { Company as Table } from 'components/tables/Company';
 import { TitleOptions } from 'components/TitleOptions';
 import { useEffect, useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
-import repository from '../../repositories/product';
-
-// ==============================|| TYPOGRAPHY ||============================== //
+import repository from '../../repositories/company';
 
 const Companies = () => {
-    const [products, setProducts] = useState([]);
+    const [companies, setCompanies] = useState([]);
 
     useEffect(() => {
-        repository.getAll().then(setProducts);
+        repository.getAll().then(setCompanies);
     }, []);
 
     return (
-        <MainCard title="Companias" secondary={<TitleOptions />}>
+        <MainCard title="Companias" secondary={<TitleOptions textButton="Crear compania" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
-                    <Table data={products} labels={data} />
+                    <Table data={companies} labels={data} />
                 </Grid>
             </Grid>
         </MainCard>

@@ -24,18 +24,11 @@ class ProductService {
 
     // Edit product by id
     async editById(id, data, token) {
-        try {
-            const request = await axios.patch(
-                config.EDIT_BY_ID + id,
-                { data },
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-            );
-            console.log(request);
-        } catch (e) {}
+        return await axios.patch(config.EDIT_BY_ID + id, data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
     }
 
     // Create product

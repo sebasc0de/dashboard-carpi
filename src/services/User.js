@@ -1,4 +1,6 @@
 import { config } from '../axios/user';
+import { TABLE_CONFIG } from '../config/Notifications';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 class UserService {
@@ -24,7 +26,7 @@ class UserService {
                     }
                 }
             );
-            console.log(request);
+            if (request) toast('Excelente', TABLE_CONFIG);
         } catch (e) {
             console.log(e);
         }
