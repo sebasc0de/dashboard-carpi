@@ -65,3 +65,10 @@
 .productName a {
     color: rgb(161, 98, 219);
 }
+
+/* Company discount */
+.discount {
+    width: 250px;
+    gap: 1rem;
+    display: flex;
+}

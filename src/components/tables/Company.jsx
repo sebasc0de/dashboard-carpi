@@ -1,12 +1,8 @@
-import { Buttons } from './Buttons';
-import { TABLE_CONFIG } from 'config/Notifications';
-import { toast } from 'react-toastify';
-import styles from '../../styles/table.module.css';
 import { Link } from 'react-router-dom';
+import Discount from '../tables/Discount';
+import styles from '../../styles/table.module.css';
 
 export const Company = ({ data, labels }) => {
-    const handleDelete = (param) => toast(`El product se ha borrado con exito, refresca la pagina para ver los cambios`, TABLE_CONFIG);
-
     if (!data | !labels) return <p>Loading</p>;
     return (
         <div className={styles.container}>
@@ -19,7 +15,7 @@ export const Company = ({ data, labels }) => {
 
                 {data.map((item) => (
                     <tr key={item.id}>
-                        <Buttons handleDelete={() => handleDelete(item.name)} />
+                        <Discount id={item.id} />
 
                         <td>
                             <Link to={`/companies/${item.id}`}>{item.name}</Link>
