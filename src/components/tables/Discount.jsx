@@ -5,8 +5,8 @@ import React from 'react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const Discount = ({ id }) => {
-    const [value, setValue] = useState('');
+const Discount = ({ id, defaultValue }) => {
+    const [value, setValue] = useState(defaultValue | '');
 
     const handler = () => {
         if (value.length >= 1) toast(`Se agrego ${value} de descuento a esta compania`, TABLE_CONFIG);
@@ -14,7 +14,7 @@ const Discount = ({ id }) => {
 
     return (
         <td className={styles.discount}>
-            <TextField onChange={(e) => setValue(e.target.value)} id="filled-basic" label="Descuento" variant="filled" />
+            <TextField value={value} onChange={(e) => setValue(e.target.value)} id="filled-basic" label="Descuento" variant="filled" />
             <Button onClick={handler} size="small" variant="contained">
                 Aplicar
             </Button>
