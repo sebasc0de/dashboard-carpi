@@ -46,7 +46,7 @@ const FirebaseLogin = ({ ...others }) => {
                             setSubmitting(false);
                         }
                     } catch (err) {
-                        toast('Ha habido un error con el servidor, intentalo mas tarde', ERROR_CONFIG);
+                        console.log(err);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
                             setErrors({ user: err.message });
@@ -62,7 +62,7 @@ const FirebaseLogin = ({ ...others }) => {
                             <InputLabel htmlFor="outlined-adornment-product-name">Nombre del producto</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-product-name"
-                                type="name"
+                                type="text"
                                 value={values.name}
                                 name="name"
                                 onBlur={handleBlur}
@@ -87,7 +87,7 @@ const FirebaseLogin = ({ ...others }) => {
                                 id="outlined-adornment-product-desc"
                                 type="text"
                                 value={values.direction}
-                                name="description"
+                                name="direction"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 inputProps={{}}
@@ -104,9 +104,9 @@ const FirebaseLogin = ({ ...others }) => {
                             <InputLabel htmlFor="outlined-adornment-product-stock">Stock</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-product-stock"
-                                type="number"
+                                type="text"
                                 value={values.phone}
-                                name="stock"
+                                name="phone"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 inputProps={{}}
