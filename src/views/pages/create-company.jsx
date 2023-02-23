@@ -1,25 +1,8 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-    Box,
-    Button,
-    Checkbox,
-    Divider,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Grid,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-    Stack,
-    Typography,
-    useMediaQuery
-} from '@mui/material';
+import { Box, Button, FormControl, FormHelperText, InputLabel, OutlinedInput, useMediaQuery } from '@mui/material';
 
 // third party
 import * as Yup from 'yup';
@@ -28,9 +11,11 @@ import { Formik } from 'formik';
 // project imports
 import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
+import repository from '../../repositories/company';
 
 const FirebaseLogin = ({ ...others }) => {
     const theme = useTheme();
+    const user = useSelector((state) => state.auth.user);
     const scriptedRef = useScriptRef();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
     const customization = useSelector((state) => state.customization);
@@ -39,19 +24,19 @@ const FirebaseLogin = ({ ...others }) => {
         <>
             <Formik
                 initialValues={{
-                    name: 'Product de prueba por sebas',
-                    description: 'esto ees un producto de prueba',
-                    stock: 0,
-                    submit: null
+                    name: 'Compania de prueba',
+                    direction: 'SAn pedro 321',
+                    phone: '3382819002002',
+                    user: user.id
                 }}
                 validationSchema={Yup.object().shape({
-                    name: Yup.string().min(5).required('Debes ingresar un nombre'),
-                    password: Yup.string().max(255).required('Debes ingresar un password')
+                    name: Yup.string().required('Debes ingresar un nombre')
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
-                        const { submit, ...data } = values;
-
+                        const { user: submit, ...data } = values;
+                        const request = await repository.create(data, user.token);
+                        console.log(request);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
@@ -60,7 +45,7 @@ const FirebaseLogin = ({ ...others }) => {
                         console.log(err);
                         if (scriptedRef.current) {
                             setStatus({ success: false });
-                            setErrors({ submit: err.message });
+                            setErrors({ user: err.message });
                             setSubmitting(false);
                         }
                     }
@@ -90,41 +75,41 @@ const FirebaseLogin = ({ ...others }) => {
                         {/* Description */}
                         <FormControl
                             fullWidth
-                            error={Boolean(touched.description && errors.description)}
+                            error={Boolean(touched.direction && errors.direction)}
                             sx={{ ...theme.typography.customInput }}
                         >
                             <InputLabel htmlFor="outlined-adornment-product-desc">Descripcion</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-product-desc"
                                 type="text"
-                                value={values.description}
+                                value={values.direction}
                                 name="description"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 inputProps={{}}
                             />
-                            {touched.description && errors.description && (
+                            {touched.direction && errors.direction && (
                                 <FormHelperText error id="standard-weight-helper-text-product-desc">
-                                    {errors.description}
+                                    {errors.direction}
                                 </FormHelperText>
                             )}
                         </FormControl>
 
                         {/* Stock */}
-                        <FormControl fullWidth error={Boolean(touched.stock && errors.stock)} sx={{ ...theme.typography.customInput }}>
+                        <FormControl fullWidth error={Boolean(touched.phone && errors.phone)} sx={{ ...theme.typography.customInput }}>
                             <InputLabel htmlFor="outlined-adornment-product-stock">Stock</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-product-stock"
                                 type="number"
-                                value={values.stock}
+                                value={values.phone}
                                 name="stock"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 inputProps={{}}
                             />
-                            {touched.stock && errors.stock && (
+                            {touched.phone && errors.phone && (
                                 <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                    {errors.stock}
+                                    {errors.phone}
                                 </FormHelperText>
                             )}
                         </FormControl>

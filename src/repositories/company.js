@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { config } from '../axios/company';
+import { config, BASE_URL } from '../axios/company';
 
 class Repository {
     async getAll() {
@@ -7,8 +7,12 @@ class Repository {
         return response.data;
     }
 
-    async getById(id) {
-        const response = await axios.get(`${config.GET_BY_ID}/${id}`);
+    async create(data, token) {
+        const response = await axios.post(BASE_URL, data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         return response.data;
     }
 }
