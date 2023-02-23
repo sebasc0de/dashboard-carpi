@@ -7,6 +7,15 @@ class Repository {
         return response.data;
     }
 
+    async getById(id, token) {
+        const response = await axios.get(config.GET_BY_ID + id, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return response.data;
+    }
+
     async create(data, token) {
         const response = await axios.post(BASE_URL, data, {
             headers: {

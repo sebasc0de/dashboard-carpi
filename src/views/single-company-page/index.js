@@ -1,20 +1,27 @@
 // material-ui
-import { Typography } from '@mui/material';
-
-// project imports
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 import MainCard from 'ui-component/cards/MainCard';
 
-// ==============================|| SAMPLE PAGE ||============================== //
+// project imports
+import repository from '../../repositories/company';
+import Form from 'components/forms/SingleCompany';
 
-const SamplePage = () => (
-    <MainCard title="Sample Car">
-        <Typography variant="body2">
-            Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie magna alissa. Ut enif
-            ad minim venice, quin nostrum exercitation illampu laborings nisi ut liquid ex ea commons construal. Duos aube grue dolor in
-            reprehended in voltage veil esse colum doolie eu fujian bulla parian. Exceptive sin ocean cuspidate non president, sunk in culpa
-            qui officiate descent molls anim id est labours.
-        </Typography>
-    </MainCard>
-);
+const SamplePage = () => {
+    const token = useSelector((state) => state.auth.user.token);
+    const [company, setCompany] = useState(undefined);
+    const id = useParams().id;
+
+    useEffect(() => {
+        repository.getById(id, token).then(setCompany);
+    }, []);
+
+    return (
+        <MainCard title="Actualizar datos">
+            <Form data={company} />
+        </MainCard>
+    );
+};
 
 export default SamplePage;
