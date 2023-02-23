@@ -124,7 +124,7 @@ const FirebaseLogin = ({ ...others }) => {
 
                     {/* Cuit */}
                     <FormControl fullWidth error={Boolean(touched.cuit && errors.cuit)} sx={{ ...theme.typography.customInput }}>
-                        <InputLabel htmlFor="outlined-adornment-product-name">Nombre</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-product-name">Cuit</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-name"
                             type="text"
@@ -143,12 +143,12 @@ const FirebaseLogin = ({ ...others }) => {
 
                     {/* Email */}
                     <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-                        <InputLabel htmlFor="outlined-adornment-product-desc">Direccion</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-product-desc">Email</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-desc"
                             type="text"
                             value={values.email}
-                            name="direction"
+                            name="email"
                             onBlur={handleBlur}
                             onChange={handleChange}
                         />

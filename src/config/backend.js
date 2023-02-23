@@ -1,5 +1,5 @@
 // Production or developmente variable
-const PROD_URL = process.env.PROD_URL;
+const PROD_URL = 'https://carpi.zvl.ar/';
 const DEV_URL = process.env.DEV_URL;
 
 const API_URL = PROD_URL;
