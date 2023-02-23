@@ -26,7 +26,6 @@ const FirebaseLogin = ({ ...others }) => {
         <Formik
             initialValues={{
                 name: '',
-                type: '',
                 direction: '',
                 phone: '',
                 cuit: '',
@@ -37,7 +36,8 @@ const FirebaseLogin = ({ ...others }) => {
                 user: user.id
             }}
             validationSchema={Yup.object().shape({
-                name: Yup.string().required('Debes ingresar un nombre')
+                name: Yup.string().required('Debes ingresar un nombre'),
+                email: Yup.string().email('Debes ingresar un email').required('Debes ingresar un email')
             })}
             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                 try {
@@ -51,6 +51,7 @@ const FirebaseLogin = ({ ...others }) => {
                         setSubmitting(false);
                     }
                 } catch (err) {
+                    console.log(err);
                     toast('Ha habido un error con el servidor, intentalo mas tarde', ERROR_CONFIG);
                     if (scriptedRef.current) {
                         setStatus({ success: false });
