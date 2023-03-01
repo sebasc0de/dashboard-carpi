@@ -19,15 +19,14 @@ export const Company = ({ data, labels }) => {
                             <Link to={`/companies/${item.id}`}>{item.name}</Link>
                         </td>
 
-                        <td>Mayorista/minorista</td>
-                        <td>Direccion</td>
-                        <td>Phone</td>
-                        <td>Cuit</td>
-                        <td>Email</td>
-                        <td>Direccion fisica</td>
-                        <td>Direccion de envio</td>
-                        <td>Jefe de compras</td>
-                        <td>Informacion adicional</td>
+                        <td>{item.direction}</td>
+                        <td>{item.phone}</td>
+                        <td>{item.cuit}</td>
+                        <td>{item.email}</td>
+                        <td>{item.discount}</td>
+                        <td>{item.physicalAddress}</td>
+                        <td>{item.shippingAddress}</td>
+                        <td>{item.purchasingManager}</td>
                     </tr>
                 ))}
             </table>

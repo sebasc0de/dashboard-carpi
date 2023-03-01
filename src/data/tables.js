@@ -14,7 +14,20 @@ export const ProductLabels = [
     'publicado'
 ];
 
-export const CompanyLabels = ['Nombre', 'Tipo', 'Direccion', 'Telefono', 'Cuit', 'Email', 'Direccion showroom', 'Fabrica', 'Deposito'];
+export const CompanyLabels = [
+    'Nombre',
+    'Direccion',
+    'Telefono',
+    'Cuit',
+    'Email',
+    'Descuento',
+    'Direccion fisica',
+    'Direccion envios',
+    'Jefe de compras',
+    'Direccion showroom',
+    'Fabrica',
+    'Deposito'
+];
 
 export const UsersLabels = ['', 'Email', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];
 

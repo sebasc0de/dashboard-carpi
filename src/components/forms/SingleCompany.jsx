@@ -11,6 +11,9 @@ import { Formik } from 'formik';
 // project imports
 import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
+import repository from '../../repositories/company';
+import { toast } from 'react-toastify';
+import { ERROR_CONFIG, TABLE_CONFIG } from 'config/Notifications';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
@@ -41,7 +44,7 @@ const Form = ({ ...others }) => {
             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                 try {
                     const { user: submit, ...data } = values;
-                    const request = await repository.create(data, company.token);
+                    const request = await repository.editById(company.id, data, company.token);
 
                     if (request) toast('Todo ha salido bien, la compania se creo con exito', TABLE_CONFIG);
 
@@ -50,6 +53,7 @@ const Form = ({ ...others }) => {
                         setSubmitting(false);
                     }
                 } catch (err) {
+                    console.log(err);
                     toast('Ha habido un error con el servidor, intentalo mas tarde', ERROR_CONFIG);
                     if (scriptedRef.current) {
                         setStatus({ success: false });
@@ -147,7 +151,7 @@ const Form = ({ ...others }) => {
                             id="outlined-adornment-product-desc"
                             type="text"
                             value={values.email}
-                            name="direction"
+                            name="email"
                             onBlur={handleBlur}
                             onChange={handleChange}
                         />
