@@ -3,26 +3,35 @@ import { config, BASE_URL } from '../axios/company';
 
 class Repository {
     async getAll() {
-        const response = await axios.get(config.GET_ALL);
-        return response.data;
+        const request = await axios.get(config.GET_ALL);
+        return request.data;
     }
 
     async getById(id, token) {
-        const response = await axios.get(config.GET_BY_ID + id, {
+        const request = await axios.get(config.GET_BY_ID + id, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         });
-        return response.data;
+        return request.data;
     }
 
     async create(data, token) {
-        const response = await axios.post(BASE_URL, data, {
+        const request = await axios.post(BASE_URL, data, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         });
-        return response.data;
+        return request.data;
+    }
+
+    async editById(id, data, token) {
+        const request = await axios.patch(BASE_URL + id, data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return request.data;
     }
 }
 

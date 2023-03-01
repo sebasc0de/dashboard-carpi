@@ -20,7 +20,7 @@ const Products = () => {
     }, []);
 
     return (
-        <MainCard title="Productos" secondary={<TitleOptions textButton="Crear producto" />}>
+        <MainCard title="Productos">
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={products} labels={ProductLabels} />
