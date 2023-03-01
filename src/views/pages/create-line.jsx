@@ -26,14 +26,12 @@ const FirebaseLogin = ({ ...others }) => {
         <Formik
             initialValues={{
                 name: '',
-                direction: '',
-                phone: '',
-                cuit: '',
-                email: '',
-                physicalAddress: '',
-                shippingAddress: '',
-                purchasingManager: '',
-                user: user.id
+                productType: '',
+                properties: '',
+                size: '',
+                other: '',
+                applications: '',
+                fqa: ''
             }}
             validationSchema={Yup.object().shape({
                 name: Yup.string().required('Debes ingresar un nombre'),
@@ -83,123 +81,124 @@ const FirebaseLogin = ({ ...others }) => {
                         )}
                     </FormControl>
 
-                    {/* Direccion */}
-                    <FormControl fullWidth error={Boolean(touched.direction && errors.direction)} sx={{ ...theme.typography.customInput }}>
-                        <InputLabel htmlFor="outlined-adornment-product-desc">Direccion</InputLabel>
+                    {/* Product Type */}
+                    <FormControl
+                        fullWidth
+                        error={Boolean(touched.productType && errors.productType)}
+                        sx={{ ...theme.typography.customInput }}
+                    >
+                        <InputLabel htmlFor="outlined-adornment-product-desc">Tipo de producto</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-desc"
                             type="text"
-                            value={values.direction}
-                            name="direction"
+                            value={values.productType}
+                            name="productType"
                             onBlur={handleBlur}
                             onChange={handleChange}
                             inputProps={{}}
                         />
-                        {touched.direction && errors.direction && (
+                        {touched.productType && errors.productType && (
                             <FormHelperText error id="standard-weight-helper-text-product-desc">
-                                {errors.direction}
+                                {errors.productType}
                             </FormHelperText>
                         )}
                     </FormControl>
 
-                    {/* Phone */}
-                    <FormControl fullWidth error={Boolean(touched.phone && errors.phone)} sx={{ ...theme.typography.customInput }}>
-                        <InputLabel htmlFor="outlined-adornment-product-stock">Telefono</InputLabel>
+                    {/* Properties */}
+                    <FormControl
+                        fullWidth
+                        error={Boolean(touched.properties && errors.properties)}
+                        sx={{ ...theme.typography.customInput }}
+                    >
+                        <InputLabel htmlFor="outlined-adornment-product-stock">Propiedades</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-stock"
                             type="text"
-                            value={values.phone}
-                            name="phone"
+                            value={values.properties}
+                            name="properties"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            inputProps={{}}
                         />
-                        {touched.phone && errors.phone && (
+                        {touched.properties && errors.properties && (
                             <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                {errors.phone}
+                                {errors.properties}
                             </FormHelperText>
                         )}
                     </FormControl>
 
-                    <h2>Datos de contacto</h2>
-
-                    {/* Cuit */}
-                    <FormControl fullWidth error={Boolean(touched.cuit && errors.cuit)} sx={{ ...theme.typography.customInput }}>
-                        <InputLabel htmlFor="outlined-adornment-product-name">Cuit</InputLabel>
+                    {/* Size */}
+                    <FormControl fullWidth error={Boolean(touched.size && errors.size)} sx={{ ...theme.typography.customInput }}>
+                        <InputLabel htmlFor="outlined-adornment-product-name">Tamanio</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-name"
                             type="text"
-                            value={values.cuit}
-                            name="cuit"
+                            value={values.size}
+                            name="size"
                             onBlur={handleBlur}
                             onChange={handleChange}
                             inputProps={{}}
                         />
-                        {touched.cuit && errors.cuit && (
+                        {touched.size && errors.size && (
                             <FormHelperText error id="standard-weight-helper-text-product-name">
-                                {errors.cuit}
+                                {errors.size}
                             </FormHelperText>
                         )}
                     </FormControl>
 
-                    {/* Email */}
-                    <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-                        <InputLabel htmlFor="outlined-adornment-product-desc">Email</InputLabel>
+                    {/* Other */}
+                    <FormControl fullWidth error={Boolean(touched.other && errors.other)} sx={{ ...theme.typography.customInput }}>
+                        <InputLabel htmlFor="outlined-adornment-product-desc">Otros</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-desc"
                             type="text"
-                            value={values.email}
-                            name="email"
+                            value={values.other}
+                            name="other"
                             onBlur={handleBlur}
                             onChange={handleChange}
                         />
-                        {touched.email && errors.email && (
+                        {touched.other && errors.other && (
                             <FormHelperText error id="standard-weight-helper-text-product-desc">
-                                {errors.email}
+                                {errors.other}
                             </FormHelperText>
                         )}
                     </FormControl>
 
-                    {/* Direccion fisica*/}
+                    {/* Applications */}
                     <FormControl
                         fullWidth
-                        error={Boolean(touched.physicalAddress && errors.physicalAddress)}
+                        error={Boolean(touched.applications && errors.applications)}
                         sx={{ ...theme.typography.customInput }}
                     >
-                        <InputLabel htmlFor="outlined-adornment-product-stock">Direccion fisica</InputLabel>
+                        <InputLabel htmlFor="outlined-adornment-product-stock">Aplicaciones</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-stock"
                             type="text"
-                            value={values.physicalAddress}
-                            name="physicalAddress"
+                            value={values.applications}
+                            name="applications"
                             onBlur={handleBlur}
                             onChange={handleChange}
                         />
-                        {touched.physicalAddress && errors.physicalAddress && (
+                        {touched.applications && errors.applications && (
                             <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                {errors.physicalAddress}
+                                {errors.applications}
                             </FormHelperText>
                         )}
                     </FormControl>
 
-                    {/* Direccion de envios*/}
-                    <FormControl
-                        fullWidth
-                        error={Boolean(touched.shippingAddress && errors.shippingAddress)}
-                        sx={{ ...theme.typography.customInput }}
-                    >
-                        <InputLabel htmlFor="outlined-adornment-product-stock">Direccion de envios</InputLabel>
+                    {/* FAQ*/}
+                    <FormControl fullWidth error={Boolean(touched.faq && errors.faq)} sx={{ ...theme.typography.customInput }}>
+                        <InputLabel htmlFor="outlined-adornment-product-stock">Preguntas frecuentes</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-stock"
                             type="text"
-                            value={values.shippingAddress}
-                            name="shippingAddress"
+                            value={values.faq}
+                            name="faq"
                             onBlur={handleBlur}
                             onChange={handleChange}
                         />
-                        {touched.shippingAddress && errors.shippingAddress && (
+                        {touched.faq && errors.faq && (
                             <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                {errors.shippingAddress}
+                                {errors.faq}
                             </FormHelperText>
                         )}
                     </FormControl>
