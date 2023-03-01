@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import MainCard from 'ui-component/cards/MainCard';
+import VisibilitySwitch from '../../components/tables/VisibilitySwitch';
 
 // project imports
 import repository from '../../repositories/product';
@@ -16,7 +17,7 @@ const SamplePage = () => {
     }, []);
 
     return (
-        <MainCard title="Actualizar datos">
+        <MainCard title="Actualizar datos" secondary={<VisibilitySwitch />}>
             <Form data={product} />
         </MainCard>
     );
