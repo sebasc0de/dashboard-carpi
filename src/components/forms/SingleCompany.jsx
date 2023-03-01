@@ -20,8 +20,6 @@ const Form = ({ ...others }) => {
     const scriptedRef = useScriptRef();
     const customization = useSelector((state) => state.customization);
 
-    console.log(others);
-
     if (!company) return <p>Esperando...</p>;
     return (
         <Formik

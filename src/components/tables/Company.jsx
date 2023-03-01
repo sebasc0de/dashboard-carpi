@@ -15,8 +15,6 @@ export const Company = ({ data, labels }) => {
 
                 {data.map((item) => (
                     <tr key={item.id}>
-                        <Discount defaultValue={item.discount} id={item.id} />
-
                         <td className={styles.link}>
                             <Link to={`/companies/${item.id}`}>{item.name}</Link>
                         </td>
