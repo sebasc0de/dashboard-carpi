@@ -21,7 +21,7 @@ const Lines = () => {
     }, []);
 
     return (
-        <MainCard title="Lineas" secondary={<Button text="Hello world" />}>
+        <MainCard title="Lineas" secondary={<Button text="Crear linea" link="/create-line" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={lines} labels={data} />

@@ -17,7 +17,7 @@ const Companies = () => {
     }, []);
 
     return (
-        <MainCard title="Companias" secondary={<TitleOptions textButton="Crear compania" />}>
+        <MainCard title="Companias" secondary={<TitleOptions textButton="Crear compania" link="/create-company" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={companies} labels={data} />
