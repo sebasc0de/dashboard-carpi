@@ -8,6 +8,8 @@ export const Product = ({ data, labels }) => {
 
     const toggleVisibility = async (id, value) => console.log('estamos en espera');
 
+    console.log(data);
+
     if (!data | !labels) return <p>Loading</p>;
     return (
         <div className={styles.container}>
