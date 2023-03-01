@@ -2,7 +2,6 @@ import { Buttons } from './Buttons';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from '../../styles/table.module.css';
-import Discount from './Discount';
 
 export const Product = ({ data, labels }) => {
     const user = useSelector((state) => state.auth.user);
@@ -24,7 +23,6 @@ export const Product = ({ data, labels }) => {
                         <td>
                             <Buttons hideAction={toggleVisibility} />
                         </td>
-                        <Discount />
                         <td>
                             <img
                                 src="https://erasmusnation-com.ams3.digitaloceanspaces.com/woocommerce-placeholder.png"

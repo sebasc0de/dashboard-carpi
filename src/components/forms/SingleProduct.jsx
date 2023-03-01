@@ -31,9 +31,16 @@ const Form = ({ ...others }) => {
             <Formik
                 initialValues={{
                     name: product.name,
+                    code: product.code,
+                    description: product.desc,
+                    carpiId: product.carpiId,
                     size: product.size,
+                    weight: product.weight,
+                    color: product.color,
                     stock: product.stock,
-                    description: 'esto es una prueba',
+                    max: product.max,
+                    min: product.min,
+                    productInPromotion: product.productInPromotion,
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
@@ -78,6 +85,67 @@ const Form = ({ ...others }) => {
                             )}
                         </FormControl>
 
+                        {/* Product code */}
+                        <FormControl fullWidth error={Boolean(touched.code && errors.code)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-name">Codigo del producto</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-name"
+                                type="text"
+                                value={values.code}
+                                name="code"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.code && errors.code && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.code}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Product Description */}
+                        <FormControl
+                            fullWidth
+                            error={Boolean(touched.description && errors.description)}
+                            sx={{ ...theme.typography.customInput }}
+                        >
+                            <InputLabel htmlFor="outlined-adornment-product-size">Descripcion del producto</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-size"
+                                type="text"
+                                value={values.description}
+                                name="description"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.description && errors.description && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.description}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Carpi id */}
+                        <FormControl fullWidth error={Boolean(touched.carpiId && errors.carpiId)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-size">Carpi id</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-size"
+                                type="text"
+                                value={values.carpiId}
+                                name="carpiId"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.carpiId && errors.carpiId && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.carpiId}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
                         {/* Product size */}
                         <FormControl fullWidth error={Boolean(touched.size && errors.size)} sx={{ ...theme.typography.customInput }}>
                             <InputLabel htmlFor="outlined-adornment-product-size">Tamaño del producto</InputLabel>
@@ -97,6 +165,44 @@ const Form = ({ ...others }) => {
                             )}
                         </FormControl>
 
+                        {/* Product weight */}
+                        <FormControl fullWidth error={Boolean(touched.weight && errors.weight)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-size">Peso del producto</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-size"
+                                type="text"
+                                value={values.weight}
+                                name="weight"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.weight && errors.weight && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.weight}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Product color */}
+                        <FormControl fullWidth error={Boolean(touched.color && errors.color)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-stock">Color del producto</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-stock"
+                                type="number"
+                                value={values.color}
+                                name="color"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.color && errors.color && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.color}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
                         {/* Product stock */}
                         <FormControl fullWidth error={Boolean(touched.stock && errors.stock)} sx={{ ...theme.typography.customInput }}>
                             <InputLabel htmlFor="outlined-adornment-product-stock">Stock del producto</InputLabel>
@@ -112,6 +218,67 @@ const Form = ({ ...others }) => {
                             {touched.size && errors.size && (
                                 <FormHelperText error id="standard-weight-helper-text--register">
                                     {errors.name}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Product Max */}
+                        <FormControl fullWidth error={Boolean(touched.max && errors.max)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-stock">Max</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-stock"
+                                type="number"
+                                value={values.max}
+                                name="max"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.max && errors.max && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.max}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Product Min */}
+                        <FormControl fullWidth error={Boolean(touched.max && errors.max)} sx={{ ...theme.typography.customInput }}>
+                            <InputLabel htmlFor="outlined-adornment-product-stock">Min</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-stock"
+                                type="number"
+                                value={values.min}
+                                name="min"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.min && errors.min && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.min}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        {/* Product in promotion */}
+                        <FormControl
+                            fullWidth
+                            error={Boolean(touched.productInPromotion && errors.productInPromotion)}
+                            sx={{ ...theme.typography.customInput }}
+                        >
+                            <InputLabel htmlFor="outlined-adornment-product-stock">En promocion</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-product-stock"
+                                type="boolean"
+                                value={values.productInPromotion}
+                                name="productInPromotion"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.productInPromotion && errors.productInPromotion && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.productInPromotion}
                                 </FormHelperText>
                             )}
                         </FormControl>
