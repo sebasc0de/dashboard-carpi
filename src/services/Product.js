@@ -9,14 +9,15 @@ class ProductService {
         try {
             const toggle = await axios.patch(
                 config.EDIT_BY_ID + id,
-                { published },
+                { published: true },
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 }
             );
-            console.log(toggle);
+            console.log('product changed', toggle);
+            return toggle;
         } catch (e) {
             console.log(e);
         }

@@ -21,7 +21,7 @@ const Orders = () => {
     }, []);
 
     return (
-        <MainCard title="Pedidos" secondary={<Button text="Hello world" />}>
+        <MainCard title="Pedidos" secondary={<Button link={''} text="Hello world" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={orders} labels={data} />

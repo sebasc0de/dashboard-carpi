@@ -19,12 +19,8 @@ const Settings = () => {
     }, []);
 
     return (
-        <MainCard title="Usuarios" secondary={<Button text="Hello world" />}>
-            <Grid container spacing={gridSpacing}>
-                <Grid item xs={12} sm={12}>
-                    <Table data={products} labels={data} />
-                </Grid>
-            </Grid>
+        <MainCard title="Configuraciones">
+            <p>Aun no hay configuraciones disponibles</p>
         </MainCard>
     );
 };

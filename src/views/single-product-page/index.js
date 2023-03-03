@@ -14,12 +14,17 @@ const SamplePage = () => {
     const [product, setProduct] = useState(undefined);
     const id = useParams().id;
 
+    console.log('this is my product', product);
+
     useEffect(() => {
         repository.getById(id).then(setProduct);
     }, []);
 
     return (
-        <MainCard title="Actualizar datos" secondary={<VisibilitySwitch id={id} token={token} />}>
+        <MainCard
+            title="Actualizar datos"
+            secondary={product && <VisibilitySwitch id={id} defaultValue={product.published} token={token} />}
+        >
             <Form data={product} />
         </MainCard>
     );
