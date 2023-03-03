@@ -6,8 +6,8 @@ import MainCard from 'ui-component/cards/MainCard';
 
 // project imports
 import { Button } from 'components/Button';
-import { Order as Table } from 'components/tables/Order';
-import { OrdersLabels as data } from '../../data/tables';
+import { Line as Table } from 'components/tables/Line';
+import { LineLabels as data } from '../../data/tables';
 import repository from '../../repositories/line';
 
 // ==============================|| TYPOGRAPHY ||============================== //

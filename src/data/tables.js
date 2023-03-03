@@ -12,6 +12,8 @@ export const ProductLabels = [
     'publicado'
 ];
 
+export const LineLabels = ['Nombre', ''];
+
 export const CompanyLabels = [
     'Nombre',
     'Direccion',

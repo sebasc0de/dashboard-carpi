@@ -5,24 +5,20 @@ import { useSelector } from 'react-redux';
 import MainCard from 'ui-component/cards/MainCard';
 
 // project imports
-import repository from '../../repositories/company';
-import Form from 'components/forms/SingleCompany';
-import Discount from 'components/tables/Discount';
+import repository from '../../repositories/line';
 
 const SamplePage = () => {
     const token = useSelector((state) => state.auth.user.token);
-    const [company, setCompany] = useState(undefined);
+    const [line, setLine] = useState(undefined);
     const id = useParams().id;
 
     useEffect(() => {
-        repository.getById(id, token).then(setCompany);
+        repository.getById(id).then(setLine);
     }, []);
 
-    return (
-        <MainCard secondary={company && <Discount defaultValue={company.discount} id={company.id} />} title="Actualizar datos">
-            <Form data={company} />
-        </MainCard>
-    );
+    console.log(line);
+
+    return <MainCard title="Actualizar datos"></MainCard>;
 };
 
 export default SamplePage;
