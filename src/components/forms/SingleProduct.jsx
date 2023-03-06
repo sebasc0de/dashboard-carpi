@@ -43,13 +43,10 @@ const Form = ({ ...others }) => {
                     productInPromotion: product.productInPromotion,
                     submit: null
                 }}
-                validationSchema={Yup.object().shape({
-                    name: Yup.string().required('Debes ingresar un nombre de usuario')
-                })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         const { submit, ...data } = values;
-                        const request = await service.editProductById(product.id, data, token);
+                        const request = await service.editById(product.id, data, token);
                         console.log(request);
                         if (scriptedRef.current) {
                             setStatus({ success: true });

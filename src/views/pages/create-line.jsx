@@ -203,28 +203,6 @@ const FirebaseLogin = ({ ...others }) => {
                         )}
                     </FormControl>
 
-                    {/* Jefe de compras */}
-                    <FormControl
-                        fullWidth
-                        error={Boolean(touched.purchasingManager && errors.purchasingManager)}
-                        sx={{ ...theme.typography.customInput }}
-                    >
-                        <InputLabel htmlFor="outlined-adornment-product-stock">Jefe de compras</InputLabel>
-                        <OutlinedInput
-                            id="outlined-adornment-product-stock"
-                            type="text"
-                            value={values.purchasingManager}
-                            name="purchasingManager"
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                        />
-                        {touched.purchasingManager && errors.purchasingManager && (
-                            <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                {errors.purchasingManager}
-                            </FormHelperText>
-                        )}
-                    </FormControl>
-
                     <Box sx={{ mt: 2 }}>
                         <AnimateButton>
                             <Button
