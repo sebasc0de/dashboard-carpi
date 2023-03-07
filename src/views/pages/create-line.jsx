@@ -11,7 +11,7 @@ import { Formik } from 'formik';
 // project imports
 import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
-import repository from '../../repositories/company';
+import repository from '../../repositories/line';
 import { toast } from 'react-toastify';
 import { ERROR_CONFIG, TABLE_CONFIG } from 'config/Notifications';
 
@@ -30,13 +30,14 @@ const FirebaseLogin = ({ ...others }) => {
                 properties: '',
                 size: '',
                 other: '',
-                applications: '',
-                fqa: ''
+                aplications: '',
+                fqa: [
+                    {
+                        question: 'Una duda...',
+                        answer: 'Mi respuesta'
+                    }
+                ]
             }}
-            validationSchema={Yup.object().shape({
-                name: Yup.string().required('Debes ingresar un nombre'),
-                email: Yup.string().email('Debes ingresar un email').required('Debes ingresar un email')
-            })}
             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                 try {
                     const { user: submit, ...data } = values;
@@ -166,39 +167,39 @@ const FirebaseLogin = ({ ...others }) => {
                     {/* Applications */}
                     <FormControl
                         fullWidth
-                        error={Boolean(touched.applications && errors.applications)}
+                        error={Boolean(touched.aplications && errors.aplications)}
                         sx={{ ...theme.typography.customInput }}
                     >
                         <InputLabel htmlFor="outlined-adornment-product-stock">Aplicaciones</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-stock"
                             type="text"
-                            value={values.applications}
-                            name="applications"
+                            value={values.aplications}
+                            name="aplications"
                             onBlur={handleBlur}
                             onChange={handleChange}
                         />
-                        {touched.applications && errors.applications && (
+                        {touched.aplications && errors.aplications && (
                             <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                {errors.applications}
+                                {errors.aplications}
                             </FormHelperText>
                         )}
                     </FormControl>
 
                     {/* FAQ*/}
-                    <FormControl fullWidth error={Boolean(touched.faq && errors.faq)} sx={{ ...theme.typography.customInput }}>
+                    <FormControl fullWidth error={Boolean(touched.fqa && errors.fqa)} sx={{ ...theme.typography.customInput }}>
                         <InputLabel htmlFor="outlined-adornment-product-stock">Preguntas frecuentes</InputLabel>
                         <OutlinedInput
                             id="outlined-adornment-product-stock"
                             type="text"
-                            value={values.faq}
-                            name="faq"
+                            value={values.fqa}
+                            name="fqa"
                             onBlur={handleBlur}
                             onChange={handleChange}
                         />
-                        {touched.faq && errors.faq && (
+                        {touched.fqa && errors.fqa && (
                             <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                {errors.faq}
+                                {errors.fqa}
                             </FormHelperText>
                         )}
                     </FormControl>
@@ -214,7 +215,7 @@ const FirebaseLogin = ({ ...others }) => {
                                 variant="contained"
                                 color="secondary"
                             >
-                                Crear compania
+                                Crear linea
                             </Button>
                         </AnimateButton>
                     </Box>
