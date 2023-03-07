@@ -9,6 +9,7 @@ import { Role as Table } from 'components/tables/Role';
 import MainCard from 'ui-component/cards/MainCard';
 import repository from '../../repositories/role';
 import { useSelector } from 'react-redux';
+import Modal from '../../components/tables/CreateNewRole';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
@@ -21,7 +22,7 @@ const Roles = () => {
     }, []);
 
     return (
-        <MainCard title="Roles" secondary={<Button text="Crear rol" link="/create-role" />}>
+        <MainCard title="Roles" secondary={<Modal />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={roles} labels={data} />
