@@ -7,7 +7,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+// project imports
+import service from '../../services/Role';
+import { useSelector } from 'react-redux';
+
 export default function FormDialog() {
+    const token = useSelector((state) => state.auth.user.token);
+    const [name, setName] = React.useState('');
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -16,6 +22,11 @@ export default function FormDialog() {
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const handleCreate = async () => {
+        const create = await service.createNew(name, token);
+        create && setOpen(false);
     };
 
     return (
@@ -30,6 +41,7 @@ export default function FormDialog() {
                     <TextField
                         autoComplete="off"
                         margin="dense"
+                        onChange={(e) => setName(e.target.value)}
                         id="name"
                         label="Nombre del rol"
                         type="text"
@@ -39,7 +51,7 @@ export default function FormDialog() {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cerrar</Button>
-                    <Button onClick={handleClose}>Crear rol</Button>
+                    <Button onClick={handleCreate}>Crear rol</Button>
                 </DialogActions>
             </Dialog>
         </div>
