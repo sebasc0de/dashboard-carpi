@@ -12,6 +12,7 @@ import { Formik } from 'formik';
 // project imports
 import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
+import SelectRole from '../tables/SelectRole';
 
 // assets
 import service from 'services/User';
@@ -31,7 +32,10 @@ const Form = ({ ...others }) => {
     if (!user) return <p>Esperando...</p>;
     return (
         <>
-            <h2>Datos de la cuenta</h2>
+            <div className="flex-between">
+                <h2>Datos de la cuenta</h2>
+                <SelectRole />
+            </div>
             <Formik
                 initialValues={{
                     fullName: user.fullName,
