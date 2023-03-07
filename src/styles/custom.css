@@ -14,3 +14,11 @@
 .fail {
     color: red;
 }
+
+/* Flex styles */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}

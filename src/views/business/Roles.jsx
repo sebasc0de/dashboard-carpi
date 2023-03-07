@@ -19,7 +19,7 @@ const Roles = () => {
     }, []);
 
     return (
-        <MainCard title="Roles" secondary={<Button text="Hello world" />}>
+        <MainCard title="Roles" secondary={<Button text="Hello world" link="" />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <Table data={products} labels={data} />

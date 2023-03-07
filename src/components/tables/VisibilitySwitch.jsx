@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
 import service from '../../services/Product';
 import { toast } from 'react-toastify';
 import { ERROR_CONFIG, TABLE_CONFIG } from 'config/Notifications';

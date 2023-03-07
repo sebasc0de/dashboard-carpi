@@ -12,7 +12,7 @@ export const ProductLabels = [
     'publicado'
 ];
 
-export const LineLabels = ['Nombre', ''];
+export const LineLabels = ['Nombre', 'Caracteristicas', 'Medidas', 'Otras caracteristicas', 'Aplicaciones', 'Preguntas frecuentes'];
 
 export const CompanyLabels = [
     'Nombre',

@@ -11,6 +11,7 @@ import { Formik } from 'formik';
 // project imports
 import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
+import ImageDialog from '../tables/ImageDialog';
 
 // assets
 import service from '../../services/Product';
@@ -27,7 +28,11 @@ const Form = ({ ...others }) => {
     if (!product) return <p>Esperando...</p>;
     return (
         <>
-            <h2>Datos del producto</h2>
+            <div className="flex-between">
+                <h2>Datos del producto</h2>
+                <ImageDialog />
+            </div>
+
             <Formik
                 initialValues={{
                     name: product.name,
