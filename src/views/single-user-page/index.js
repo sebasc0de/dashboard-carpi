@@ -15,8 +15,6 @@ const SamplePage = () => {
     const [user, setUser] = useState(undefined);
     const id = useParams().id;
 
-    console.log(user);
-
     useEffect(() => {
         service.getUserById(id, token).then(setUser);
     }, []);

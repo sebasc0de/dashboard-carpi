@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // material-ui
@@ -15,11 +14,12 @@ import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // assets
-import Auth from 'services/Auth';
+import service from 'services/User';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const Form = ({ ...others }) => {
+    const token = useSelector((state) => state.auth.user.token);
     const user = others.data;
     const theme = useTheme();
     const scriptedRef = useScriptRef();
@@ -45,7 +45,7 @@ const Form = ({ ...others }) => {
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         const { submit, ...data } = values;
-                        const register = await Auth.registerWithEmailAndPassword(data);
+                        service.editUserById(user.id, data, token);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
