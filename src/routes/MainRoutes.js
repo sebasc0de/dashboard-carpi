@@ -25,6 +25,8 @@ const SingleLine = Loadable(lazy(() => import('views/single-line-page')));
 
 const CreateCompany = Loadable(lazy(() => import('views/pages/create-company')));
 const CreateLine = Loadable(lazy(() => import('views/pages/create-line')));
+const CreateUser = Loadable(lazy(() => import('views/pages/create-line')));
+const CreateRole = Loadable(lazy(() => import('views/pages/create-line')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -112,6 +114,16 @@ const MainRoutes = {
         {
             path: 'create-company',
             element: <CreateCompany />
+        },
+
+        {
+            path: 'create-user',
+            element: <CreateUser />
+        },
+
+        {
+            path: 'create-role',
+            element: <CreateRole />
         },
 
         {
