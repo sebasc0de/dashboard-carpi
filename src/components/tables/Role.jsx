@@ -25,15 +25,15 @@ export const Role = ({ data, labels }) => {
                             <Link to={`/users/${item.id}`}>{item.name}</Link>
                         </td>
 
-                        <td>Mayorista/minorista</td>
-                        <td>Direccion</td>
-                        <td>Phone</td>
-                        <td>Cuit</td>
-                        <td>Email</td>
-                        <td>Direccion fisica</td>
-                        <td>Direccion de envio</td>
-                        <td>Jefe de compras</td>
-                        <td>Informacion adicional</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 ))}
             </table>
