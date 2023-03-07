@@ -48,21 +48,12 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     }
 }));
 
-export default function CustomizedSwitches({ id, token, defaultValue }) {
-    const handler = async () => {
-        try {
-            const change = await service.toggleVisibility(id, !defaultValue, token);
-            change && toast('El cambio se realizo con exito', TABLE_CONFIG);
-        } catch (e) {
-            toast('Algo salio mal, vuelve a intentarlo', ERROR_CONFIG);
-        }
-    };
-
+export default function CustomizedSwitches({ disabledValue, activeValue, handler, defaultValue }) {
     return (
         <Stack onChange={handler} direction="row" spacing={1} alignItems="center">
-            <Typography>Escondido</Typography>
+            <Typography>{disabledValue}</Typography>
             <AntSwitch defaultChecked={defaultValue} inputProps={{ 'aria-label': 'ant design' }} />
-            <Typography>Visible en tienda</Typography>
+            <Typography>{activeValue}</Typography>
         </Stack>
     );
 }

@@ -19,13 +19,14 @@ class UserService {
         try {
             const request = await axios.patch(
                 config.EDIT_BY_ID + id,
-                { fullName: 'Pedrito' },
+                { isActive: state },
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 }
             );
+            console.log(request);
             if (request) toast('Excelente', TABLE_CONFIG);
         } catch (e) {
             console.log(e);

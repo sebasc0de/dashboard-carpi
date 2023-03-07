@@ -18,8 +18,7 @@ class ProductService {
                     }
                 }
             );
-            console.log('product changed', toggle);
-            return toggle;
+            toggle && toast('Se ha cambiado con exito', TABLE_CONFIG);
         } catch (e) {
             console.log(e);
         }

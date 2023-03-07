@@ -29,7 +29,7 @@ export const CompanyLabels = [
     'Deposito'
 ];
 
-export const UsersLabels = ['', 'Email', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];
+export const UsersLabels = ['Email', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];
 
 export const RolesLabels = ['', 'Rol', 'Permisos'];
 
