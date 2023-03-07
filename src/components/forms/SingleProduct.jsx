@@ -25,6 +25,8 @@ const Form = ({ ...others }) => {
     const scriptedRef = useScriptRef();
     const customization = useSelector((state) => state.customization);
 
+    console.log(product);
+
     if (!product) return <p>Esperando...</p>;
     return (
         <>

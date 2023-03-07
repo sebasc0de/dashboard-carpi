@@ -11,7 +11,7 @@ class ProductService {
         try {
             const toggle = await axios.patch(
                 config.EDIT_BY_ID + id,
-                { published: true },
+                { published },
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
