@@ -14,8 +14,6 @@ const SamplePage = () => {
     const [product, setProduct] = useState(undefined);
     const id = useParams().id;
 
-    console.log('this is my product', product);
-
     useEffect(() => {
         repository.getById(id).then(setProduct);
     }, []);

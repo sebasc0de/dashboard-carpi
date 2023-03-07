@@ -30,13 +30,7 @@ const FirebaseLogin = ({ ...others }) => {
                 properties: '',
                 size: '',
                 other: '',
-                aplications: '',
-                fqa: [
-                    {
-                        question: 'Una duda...',
-                        answer: 'Mi respuesta'
-                    }
-                ]
+                aplications: ''
             }}
             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                 try {
@@ -182,24 +176,6 @@ const FirebaseLogin = ({ ...others }) => {
                         {touched.aplications && errors.aplications && (
                             <FormHelperText error id="standard-weight-helper-text-product-stock">
                                 {errors.aplications}
-                            </FormHelperText>
-                        )}
-                    </FormControl>
-
-                    {/* FAQ*/}
-                    <FormControl fullWidth error={Boolean(touched.fqa && errors.fqa)} sx={{ ...theme.typography.customInput }}>
-                        <InputLabel htmlFor="outlined-adornment-product-stock">Preguntas frecuentes</InputLabel>
-                        <OutlinedInput
-                            id="outlined-adornment-product-stock"
-                            type="text"
-                            value={values.fqa}
-                            name="fqa"
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                        />
-                        {touched.fqa && errors.fqa && (
-                            <FormHelperText error id="standard-weight-helper-text-product-stock">
-                                {errors.fqa}
                             </FormHelperText>
                         )}
                     </FormControl>

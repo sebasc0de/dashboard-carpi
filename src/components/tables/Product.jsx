@@ -25,15 +25,13 @@ export const Product = ({ data, labels }) => {
                             />
                         </td>
                         <td className={styles.link}>
-                            <a>{item.name}</a>
+                            <Link to={`/products/${item.id}`}>{item.name}</Link>
                         </td>
                         <td>{item.carpiId}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
-                        <td>
-                            <Link to={`/products/${item.id}`}>{item.price}</Link>
-                        </td>
+                        <td>{item.price}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
                         <td>{item.price}</td>
