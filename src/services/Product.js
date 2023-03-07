@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { TABLE_CONFIG } from 'config/Notifications';
+import { toast } from 'react-toastify';
 import { config } from '../axios/product';
 
 class ProductService {
@@ -31,7 +33,8 @@ class ProductService {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(edit);
+
+            edit && toast('Se ha modificado con exito, refresca la pagina', TABLE_CONFIG);
 
             return edit;
         } catch (e) {
