@@ -7,22 +7,25 @@ import { RolesLabels as data } from '../../data/tables';
 import { gridSpacing } from 'store/constant';
 import { Role as Table } from 'components/tables/Role';
 import MainCard from 'ui-component/cards/MainCard';
-import repository from '../../repositories/product';
+import repository from '../../repositories/role';
+import { useSelector } from 'react-redux';
+import Modal from '../../components/tables/CreateNewRole';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
 const Roles = () => {
-    const [products, setProducts] = useState([]);
+    const token = useSelector((state) => state.auth.user.token);
+    const [roles, setRoles] = useState([]);
 
     useEffect(() => {
-        repository.getAll().then(setProducts);
+        repository.getAll(token).then(setRoles);
     }, []);
 
     return (
-        <MainCard title="Roles" secondary={<Button text="Hello world" />}>
+        <MainCard title="Roles" secondary={<Modal />}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
-                    <Table data={products} labels={data} />
+                    <Table data={roles} labels={data} />
                 </Grid>
             </Grid>
         </MainCard>

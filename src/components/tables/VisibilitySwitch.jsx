@@ -3,10 +3,9 @@ import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
 import service from '../../services/Product';
 import { toast } from 'react-toastify';
-import { TABLE_CONFIG } from 'config/Notifications';
+import { ERROR_CONFIG, TABLE_CONFIG } from 'config/Notifications';
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
@@ -49,25 +48,12 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     }
 }));
 
-export default function CustomizedSwitches({ id, token }) {
-    const [visibility, setVisibility] = useState(false);
-
-    const handler = async () => {
-        setVisibility(!visibility);
-
-        try {
-            const change = await service.toggleVisibility(id, visibility, token);
-            change && toast('La accion se realizo con exito', TABLE_CONFIG);
-        } catch (e) {
-            alert('mal');
-        }
-    };
-
+export default function CustomizedSwitches({ disabledValue, activeValue, handler, defaultValue }) {
     return (
         <Stack onChange={handler} direction="row" spacing={1} alignItems="center">
-            <Typography>Escondido</Typography>
-            <AntSwitch defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
-            <Typography>Visible en tienda</Typography>
+            <Typography>{disabledValue}</Typography>
+            <AntSwitch defaultChecked={defaultValue} inputProps={{ 'aria-label': 'ant design' }} />
+            <Typography>{activeValue}</Typography>
         </Stack>
     );
 }

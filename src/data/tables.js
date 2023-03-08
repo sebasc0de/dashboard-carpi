@@ -1,5 +1,4 @@
 export const ProductLabels = [
-    '',
     'Imagen',
     'Nombre',
     'Carpi Id',
@@ -12,6 +11,8 @@ export const ProductLabels = [
     'en promocion',
     'publicado'
 ];
+
+export const LineLabels = ['Nombre', 'Caracteristicas', 'Medidas', 'Otras caracteristicas', 'Aplicaciones', 'Preguntas frecuentes'];
 
 export const CompanyLabels = [
     'Nombre',
@@ -28,7 +29,7 @@ export const CompanyLabels = [
     'Deposito'
 ];
 
-export const UsersLabels = ['', 'Email', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];
+export const UsersLabels = ['Email', 'Nombre completo', 'Activo', 'Direccion', 'Telefono', 'Pais', 'Provincia', 'Ciudad'];
 
 export const RolesLabels = ['', 'Rol', 'Permisos'];
 

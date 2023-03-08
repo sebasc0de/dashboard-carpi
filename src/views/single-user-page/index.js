@@ -8,6 +8,7 @@ import MainCard from 'ui-component/cards/MainCard';
 import service from '../../services/User';
 import Form from 'components/forms/SingleUser';
 import ChangePassword from 'components/forms/ChangePassword';
+import VisibilitySwitch from '../../components/tables/VisibilitySwitch';
 
 const SamplePage = () => {
     const token = useSelector((state) => state.auth.user.token);
@@ -18,8 +19,22 @@ const SamplePage = () => {
         service.getUserById(id, token).then(setUser);
     }, []);
 
+    const changeVisibilityHandler = () => service.toggleUserState(user.id, false, token);
+
     return (
-        <MainCard title="Actualizar datos">
+        <MainCard
+            title="Actualizar datos"
+            secondary={
+                user && (
+                    <VisibilitySwitch
+                        activeValue="Habilitado"
+                        disabledValue="Deshabilitado"
+                        handler={changeVisibilityHandler}
+                        defaultValue={user.isActive}
+                    />
+                )
+            }
+        >
             <Form data={user} />
             <ChangePassword />
         </MainCard>

@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { TABLE_CONFIG } from 'config/Notifications';
+import { toast } from 'react-toastify';
 import { config } from '../axios/product';
 
 class ProductService {
@@ -16,7 +18,7 @@ class ProductService {
                     }
                 }
             );
-            console.log(toggle);
+            toggle && toast('Se ha cambiado con exito', TABLE_CONFIG);
         } catch (e) {
             console.log(e);
         }
@@ -24,11 +26,19 @@ class ProductService {
 
     // Edit product by id
     async editById(id, data, token) {
-        return await axios.patch(config.EDIT_BY_ID + id, data, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
+        try {
+            const edit = await axios.patch(config.EDIT_BY_ID + id, data, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            edit && toast('Se ha modificado con exito, refresca la pagina', TABLE_CONFIG);
+
+            return edit;
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     // Create product

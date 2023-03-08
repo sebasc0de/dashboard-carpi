@@ -219,7 +219,7 @@ const ChangePassword = ({ ...others }) => {
                                     variant="contained"
                                     color="secondary"
                                 >
-                                    Cambiar contrasenia
+                                    Cambiar contraseña
                                 </Button>
                             </AnimateButton>
                         </Box>

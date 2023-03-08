@@ -6,6 +6,7 @@ import VisibilitySwitch from '../../components/tables/VisibilitySwitch';
 
 // project imports
 import repository from '../../repositories/product';
+import service from '../../services/Product';
 import Form from 'components/forms/SingleProduct';
 import { useSelector } from 'react-redux';
 
@@ -18,8 +19,23 @@ const SamplePage = () => {
         repository.getById(id).then(setProduct);
     }, []);
 
+    const toggleStateHandler = () => service.toggleVisibility(id, !product.published, token);
+
     return (
-        <MainCard title="Actualizar datos" secondary={<VisibilitySwitch id={id} token={token} />}>
+        <MainCard
+            title="Actualizar datos"
+            secondary={
+                product && (
+                    <VisibilitySwitch
+                        activeValue="Visible en la tienda"
+                        disabledValue="Escondido"
+                        handler={toggleStateHandler}
+                        defaultValue={product.published}
+                        token={token}
+                    />
+                )
+            }
+        >
             <Form data={product} />
         </MainCard>
     );
