@@ -11,6 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import repository from '../../repositories/role';
 import { useSelector } from 'react-redux';
+import service from '../../services/User';
 
 export default function DialogSelect() {
     const user = useSelector((state) => state.auth.user);
@@ -27,7 +28,9 @@ export default function DialogSelect() {
     };
 
     const handleClose = (reason) => {
-        if (reason === 'test') return alert(activeRol);
+        if (reason === 'test') {
+            service.changeRole(user.id, activeRol.id, user.token);
+        }
 
         setOpen(false);
     };
