@@ -1,44 +1,70 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useEffect } from 'react';
 import repository from '../../repositories/role';
 import { useSelector } from 'react-redux';
 
-export default function SelectVariants() {
-    const token = useSelector((state) => state.auth.user.token);
-    const [activeRole, setActiveRole] = React.useState('');
+export default function DialogSelect() {
+    const user = useSelector((state) => state.auth.user);
+    const [open, setOpen] = React.useState(false);
+    const [activeRol, setActiveRol] = React.useState('');
     const [roles, setRoles] = React.useState([]);
 
     const handleChange = (event) => {
-        setActiveRole(event.target.value);
+        setActiveRol(event.target.value);
     };
 
-    useEffect(() => {
-        repository.getAll(token).then(setRoles);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (reason) => {
+        if (reason === 'test') return alert(activeRol);
+
+        setOpen(false);
+    };
+
+    React.useEffect(() => {
+        repository.getAll(user.token).then(setRoles);
     }, []);
 
     return (
         <div>
-            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                <InputLabel id="demo-simple-select-standard-label">Rol de usuario</InputLabel>
-                <Select
-                    labelId="demo-simple-select-standard-label"
-                    id="demo-simple-select-standard"
-                    value={activeRole}
-                    onChange={handleChange}
-                    label="Rol de usuario"
-                >
-                    {roles.length > 1 &&
-                        roles.map((item) => (
-                            <MenuItem key={item.id} value={item.name}>
-                                {item.name}
-                            </MenuItem>
-                        ))}
-                </Select>
-            </FormControl>
+            <Button variant="contained" onClick={handleClickOpen}>
+                Cambiar rol
+            </Button>
+            <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
+                <DialogTitle>Cambia el rol del usuario</DialogTitle>
+                <DialogContent>
+                    <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <FormControl sx={{ m: 1, minWidth: 200 }}>
+                            <InputLabel htmlFor="demo-dialog-native">Rol</InputLabel>
+                            <Select
+                                native
+                                value={activeRol}
+                                onChange={handleChange}
+                                input={<OutlinedInput label="Age" id="demo-dialog-native" />}
+                            >
+                                {roles.map((item) => (
+                                    <option value={item.name}>{item.name}</option>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={() => handleClose('test')}>Ok</Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 }

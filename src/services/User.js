@@ -41,6 +41,16 @@ class UserService {
             console.log(e);
         }
     }
+
+    // Change user role
+    async changeRole(id, role, token) {
+        const request = await axios.patch(BASE_URL + id, role, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        console.log(request);
+    }
 }
 
 export default new UserService();
